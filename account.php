@@ -1,0 +1,5 @@
+<?php 
+
+/*My account page*/
+
+?>
