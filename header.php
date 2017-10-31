@@ -21,7 +21,7 @@
     </div>
     <div id='pageheader'>
             <div id="logowrap">
-                <img id="logo" src="<?/*TODO: ADD LOGO URL*/?>" alt="Logo" border="0">
+                <img id="logo" src="images/BFF_logo.png" border="0">
             </div>
         </a>
     </div>
