@@ -46,10 +46,11 @@ body{
 }
 
 #content{
+    background-color: #70814F;
     min-height: 400px;
     padding: 1%;
     width: 98%;
-    background-color: #FFFFFF;
+    /*background-color: #FFFFFF;*/
     border-radius: 0 0 20px 20px;
     display: table;
     position: relative;
@@ -92,4 +93,43 @@ body{
 
 #footerColumn3{
     width: 20%;
+}
+
+.jumbotron {
+    background-color: #70814F;
+    color: #211216;
+    padding: 100px 25px;
+}
+
+.container-fluid {
+    padding: 60px 50px;
+}
+
+.bg-fade {
+    background-color: #C5D1AC;
+}
+
+.navbar {
+    margin-bottom: 0;
+    background-color: #70814F;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px;
+    line-height: 1.42857143;
+    letter-spacing: 4px;
+    border-radius: 0;
+}
+
+.navbar li a, .navbar .navbar-brand {
+    color: #fff !important;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #70814F !important;
+    background-color: #fff !important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
 }

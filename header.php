@@ -1,4 +1,5 @@
 <?php
+    require_once('authenticate.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,9 +11,12 @@
     <meta name='description' content='Black Feather Festival website'/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel='stylesheet' type='text/css' href='style.css'/>
-    <script type="text/javascript" src="scripts.js"></script>
 
+    <!-- SCRIPTS -->
+    <script type="text/javascript" src="scripts.js"></script>
 </head>
 <body>
 <div id='pagewrap'>
@@ -23,7 +27,6 @@
             <div id="logowrap">
                 <img id="logo" src="images/BFF_logo.png" border="0">
             </div>
-        </a>
     </div>
     <div class="clear"></div>
     <div id="content">
