@@ -1,10 +1,10 @@
     </div>
 </div>
-<div class="c"></div>
+<div class="clear"></div>
 <div id="footerWrap">
     <div id="footerContent">
-            <div class="c"></div>
-            <div id="oc-link" style="float: right;"><a href="../">This goes back to localhost!</a></div>
-        </div>
+        <div id="footerColumn1" class="footerColumn"></div>
+        <div id="footerColumn2" class="footerColumn"></div>
+        <div id="footerColumn3" class="footerColumn"></div>
     </div>
 </div>

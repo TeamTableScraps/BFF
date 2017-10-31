@@ -6,20 +6,24 @@
     <title>Index</title>
     <!-- metadata is info about your page -->
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
-    <meta name='author' content='It was me, Adrian!'/>
+    <meta name='author' content='Adrian, Mike, Courtney'/>
+    <meta name='description' content='Black Feather Festival website'/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel='stylesheet' type='text/css' href='style.css'/>
+    <script type="text/javascript" src="scripts.js"></script>
+
 </head>
 <body>
-<div id='corewrap'>
+<div id='pagewrap'>
     <div id='navHeaderWrap'>
-        <?php
-        //require_once('nav.order.php');
-        ?>
+        <?php require_once('navbar.php'); ?>
     </div>
-    <div id='pagehead'>
+    <div id='pageheader'>
             <div id="logowrap">
+                <img id="logo" src="<?/*TODO: ADD LOGO URL*/?>" alt="Logo" border="0">
             </div>
         </a>
     </div>
-    <div class="c"></div>
+    <div class="clear"></div>
     <div id="content">
