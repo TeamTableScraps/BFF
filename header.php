@@ -1,11 +1,11 @@
 <?php
-    require_once('authenticate.php');
+    require_once('includes/includer.php');
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Index</title>
-    <!-- metadata is info about your page -->
+    <!-- metadata -->
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='author' content='Adrian, Mike, Courtney'/>
     <meta name='description' content='Black Feather Festival website'/>
@@ -16,7 +16,8 @@
     <link rel='stylesheet' type='text/css' href='style.css'/>
 
     <!-- SCRIPTS -->
-    <script type="text/javascript" src="scripts.js"></script>
+    <script type="text/javascript" src="scripts/scripts.js"></script>
+    <script type="text/javascript" src="scripts/jquery-3.2.1.js"></script>
 </head>
 <body>
 <div id='pagewrap'>
