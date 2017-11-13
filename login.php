@@ -29,7 +29,7 @@ if (isset($_POST['toSubmit']) && $_POST['toSubmit'] == 'true') {
     }
 
     if($errorMsg == ''){
-        echo "<script>window.location = 'index.php';</script>";/*TODO: Change this?*/
+        echo "<script>location.reload();</script>";
     }
 }
 

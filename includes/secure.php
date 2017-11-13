@@ -34,7 +34,7 @@ if(isset($_SESSION['loginPassword'])) {
     }
 }
 
-if ((isset($_POST['logout']) && $_POST['logout'] == true) || isset($_GET['logout']) && $_GET['logout'] == true) {
+if ((isset($_POST['logout']) && $_POST['logout'] == true)) {
     session_destroy();
     unset($_SESSION['loginEmail']);
     unset($_SESSION['loginPassword']);
@@ -50,7 +50,7 @@ if ((isset($_POST['logout']) && $_POST['logout'] == true) || isset($_GET['logout
 
 $user = new User($loginUser, $loginPass);
 
-if (!$user->valid && (!isset($_POST['logout']) || !isset($_GET['logout']))) {
+if (!$user->valid && (!isset($_POST['logout']))) {
     if(isset($_SESSION)){
         unset($_SESSION['loginEmail']);
         unset($_SESSION['loginPassword']);

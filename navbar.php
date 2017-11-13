@@ -22,12 +22,12 @@ echo '
 if($user->valid){
     echo '
         <li><a href="account.php"><span class="glyphicon glyphicon-user"></span>My Account</a></li>
-        <li><a href="?logout=true"><span class="glyphicon glyphicon-log-in"></span>Log Out</a></li>
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span>Log Out</a></li>
     ';
 }
 else{
     echo '
-        <li><a href="register.php"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+        <li><a href="register.php" class="popup"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
         <li><a href="login.php" class="popup"><span class="glyphicon glyphicon-user"></span>Login</a></li>
     ';
 }

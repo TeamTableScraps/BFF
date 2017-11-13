@@ -1,5 +1,9 @@
 <?php 
 
-/*My account page*/
+require_once('header.php');
+
+echo "TODO";
+
+require_once('footer.php');
 
 ?>
