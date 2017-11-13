@@ -19,16 +19,16 @@ echo '
             </ul>
             <ul class="nav navbar-nav navbar-right">
 ';
-if($LOGGED_IN_VARIABLE){
+if($user->valid){
     echo '
         <li><a href="account.php"><span class="glyphicon glyphicon-user"></span>My Account</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Log Out</a></li>
+        <li><a href="?logout=true"><span class="glyphicon glyphicon-log-in"></span>Log Out</a></li>
     ';
 }
 else{
     echo '
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+        <li><a href="register.php"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+        <li><a href="login.php" class="popup"><span class="glyphicon glyphicon-user"></span>Login</a></li>
     ';
 }
 echo '

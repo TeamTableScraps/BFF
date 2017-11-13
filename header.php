@@ -14,10 +14,12 @@
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel='stylesheet' type='text/css' href='style.css'/>
+    <link rel="stylesheet" href="colorbox-master/example1/colorbox.css">
 
     <!-- SCRIPTS -->
-    <script type="text/javascript" src="scripts/scripts.js"></script>
-    <script type="text/javascript" src="scripts/jquery-3.2.1.js"></script>
+    <script src="scripts/jquery-3.2.1.js"></script>
+    <script src="scripts/scripts.js"></script>
+    <script type="text/javascript" src="colorbox-master/jquery.colorbox-min.js"></script>
 </head>
 <body>
 <div id='pagewrap'>

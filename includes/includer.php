@@ -1,5 +1,6 @@
 <?php
-require_once('includes/config.php');
-require_once('includes/user.class.php');
-require_once('includes/functions.php');
+require_once('functions.php');
+require_once('config.php');
+require_once('user.class.php');
+require_once('secure.php');
 ?>

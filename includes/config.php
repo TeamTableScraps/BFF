@@ -24,6 +24,11 @@ define('DBNAME',$dbName);
 define('AESKEY',$aesKey);
 
 #################
-#   CONNECTION  #
+#               #
 #################
-$MySQLi = new mysqli(SQLHOST, SQLUSER, SQLPASS, DBNAME);
+$MySQLi = mysqli_connect(SQLHOST, SQLUSER, SQLPASS, DBNAME);
+
+if(mysqli_connect_errno()){
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    exit();
+}

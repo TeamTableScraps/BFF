@@ -133,3 +133,38 @@ body{
     border-color: transparent;
     color: #fff !important;
 }
+
+.whiteBorder {
+    border: 10px solid white;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.cboxOverlay_black30 {
+    background: #000000 !important;
+    opacity: 0.30 !important;
+}
+
+/*Moves colorbox close button to top right*/
+#colorbox #cboxClose{
+    top: 0!important;
+    right: 0!important;
+}
+#cboxClose{
+    border:0;
+    padding:0;
+    margin:0;
+    overflow:visible;
+    width:auto!important;
+    background:none!important;
+    position:absolute;
+    /*bottom:0;*/
+    /*right:0;*/
+    display:block;
+    color:#444;
+    text-indent: 0px!important;
+}
+#cboxLoadedContent{
+    margin-top:28px;
+    margin-bottom:0 !important;
+}
