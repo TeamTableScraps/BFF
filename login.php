@@ -1,6 +1,6 @@
 <?php
 
-require_once('includes/includer.php');
+require_once('colorbox_header.php');
 
 //Get and set all post variables
 foreach ($_POST as $k => $v) {
@@ -39,7 +39,7 @@ if($user->valid){
 }
 else { //Otherwise, display login form
     $loginForm .= "
-        <form action='login.php' name='login_form' method='post' class='popup'>
+        <form action='login.php' name='login_form' method='post' class='popupForm'>
         <input type='hidden' name='toSubmit' value='true'/>
         <table class='padded' align='center'>
             <tr class='addr_header_row'><td colspan='2' align='center' class='addr_header noTopPadding'>Login</td></tr>

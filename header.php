@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Index</title>
+    <title>Black Feather Festival</title>
     <!-- metadata -->
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='author' content='Adrian, Mike, Courtney'/>
