@@ -267,3 +267,20 @@ body{
     text-align: right;
 }
 
+.info_table, th, td {
+    
+	border: 1px solid black;
+    
+	padding: 15px;
+
+}
+
+
+
+h2 {
+     
+	color: #703A46;
+     
+	font-weight: bold;
+
+}
