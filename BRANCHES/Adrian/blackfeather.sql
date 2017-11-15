@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_ID` int(10) NOT NULL AUTO_INCREMENT UNIQUE,
   `first_name` blob NOT NULL,
   `last_name` blob NOT NULL,
-  `email` blob NOT NULL UNIQUE,
+  `email` blob NOT NULL,
   `password` blob NOT NULL,
   `is_organizer` boolean NOT NULL DEFAULT FALSE,
   PRIMARY KEY (`user_ID`)
@@ -42,8 +42,8 @@ CREATE TABLE IF NOT EXISTS `vendors` (
   `booth_ID` int(10) UNIQUE,
   `years_active` smallint,
   PRIMARY KEY (`user_ID`),
-  FOREIGN KEY ('user_ID') REFERENCES users(`user_ID`),
-  FOREIGN KEY (`booth_ID`) REFERENCES booths(booth_ID)
+  FOREIGN KEY (`user_ID`) REFERENCES users(`user_ID`),
+  FOREIGN KEY (`booth_ID`) REFERENCES booths(`booth_ID`)
 
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `sponsors` (
   `sponsorship_level` blob,
   `years_active` smallint,
   PRIMARY KEY (`user_ID`),
-  FOREIGN KEY (`user_ID`) REFERENCES users(user_ID)
+  FOREIGN KEY (`user_ID`) REFERENCES users(`user_ID`)
 
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
