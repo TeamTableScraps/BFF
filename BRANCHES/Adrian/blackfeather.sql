@@ -12,8 +12,8 @@ SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-CREATE DATABASE IF NOT EXISTS blackfeather DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE blackfeather;
+CREATE DATABASE IF NOT EXISTS blackfeatherfestival DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE blackfeatherfestival;
 
 DROP TABLE IF EXISTS users;
 CREATE TABLE IF NOT EXISTS users (
@@ -57,16 +57,18 @@ CREATE TABLE IF NOT EXISTS sponsors (
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 INSERT INTO users (first_name, last_name, email, password) VALUES
-  (AES_ENCRYPT('John', '9DC97E2DF12D8'), AES_ENCRYPT('Doe', '9DC97E2DF12D8'), AES_ENCRYPT('johnd@test.com', '9DC97E2DF12D8'), AES_ENCRYPT('test', '9DC97E2DF12D8')),
-  (AES_ENCRYPT('Jane', '9DC97E2DF12D8'), AES_ENCRYPT('Doe', '9DC97E2DF12D8'), AES_ENCRYPT('janed@test.com', '9DC97E2DF12D8'), AES_ENCRYPT('test', '9DC97E2DF12D8')),
-  (AES_ENCRYPT('Senior', '9DC97E2DF12D8'), AES_ENCRYPT('Admin', '9DC97E2DF12D8'), AES_ENCRYPT('admin@test.com', '9DC97E2DF12D8'), AES_ENCRYPT('test', '9DC97E2DF12D8')),
-  (AES_ENCRYPT('Orga', '9DC97E2DF12D8'), AES_ENCRYPT('Nizer', '9DC97E2DF12D8'), AES_ENCRYPT('organizer@test.com', '9DC97E2DF12D8'), AES_ENCRYPT('test', '9DC97E2DF12D8')),
-  (AES_ENCRYPT('Vendor', '9DC97E2DF12D8'), AES_ENCRYPT('Man', '9DC97E2DF12D8'), AES_ENCRYPT('vendorman@test.com', '9DC97E2DF12D8'), AES_ENCRYPT('test', '9DC97E2DF12D8')),
-  (AES_ENCRYPT('Vendor', '9DC97E2DF12D8'), AES_ENCRYPT('Woman', '9DC97E2DF12D8'), AES_ENCRYPT('vendorwoman@test.com', '9DC97E2DF12D8'), AES_ENCRYPT('test', '9DC97E2DF12D8')),
-  (AES_ENCRYPT('Sponsor', '9DC97E2DF12D8'), AES_ENCRYPT('Man', '9DC97E2DF12D8'), AES_ENCRYPT('sponsorman@test.com', '9DC97E2DF12D8'), AES_ENCRYPT('test', '9DC97E2DF12D8')),
-  (AES_ENCRYPT('Sponsor', '9DC97E2DF12D8'), AES_ENCRYPT('Woman', '9DC97E2DF12D8'), AES_ENCRYPT('sponsorwoman@test.com', '9DC97E2DF12D8'), AES_ENCRYPT('test', '9DC97E2DF12D8'))
+  (AES_ENCRYPT('John', 'BFF'), AES_ENCRYPT('Doe', 'BFF'), AES_ENCRYPT('johnd@test.com', 'BFF'), AES_ENCRYPT('test', 'BFF')),
+  (AES_ENCRYPT('Jane', 'BFF'), AES_ENCRYPT('Doe', 'BFF'), AES_ENCRYPT('janed@test.com', 'BFF'), AES_ENCRYPT('test', 'BFF')),
+  (AES_ENCRYPT('Senior', 'BFF'), AES_ENCRYPT('Admin', 'BFF'), AES_ENCRYPT('admin@test.com', 'BFF'), AES_ENCRYPT('test', 'BFF')),
+  (AES_ENCRYPT('Orga', 'BFF'), AES_ENCRYPT('Nizer', 'BFF'), AES_ENCRYPT('organizer@test.com', 'BFF'), AES_ENCRYPT('test', 'BFF')),
+  (AES_ENCRYPT('Vendor', 'BFF'), AES_ENCRYPT('Man', 'BFF'), AES_ENCRYPT('vendorman@test.com', 'BFF'), AES_ENCRYPT('test', 'BFF')),
+  (AES_ENCRYPT('Vendor', 'BFF'), AES_ENCRYPT('Woman', 'BFF'), AES_ENCRYPT('vendorwoman@test.com', 'BFF'), AES_ENCRYPT('test', 'BFF')),
+  (AES_ENCRYPT('Sponsor', 'BFF'), AES_ENCRYPT('Man', 'BFF'), AES_ENCRYPT('sponsorman@test.com', 'BFF'), AES_ENCRYPT('test', 'BFF')),
+  (AES_ENCRYPT('Sponsor', 'BFF'), AES_ENCRYPT('Woman', 'BFF'), AES_ENCRYPT('sponsorwoman@test.com', 'BFF'), AES_ENCRYPT('test', 'BFF'))
 
 ;
+
+UPDATE users SET is_organizer = TRUE WHERE AES_DECRYPT(first_name, 'BFF') = 'Orga';
 
 INSERT INTO booths (is_available) VALUES
   (FALSE),
