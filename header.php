@@ -28,7 +28,7 @@
     </div>
     <div id='pageheader'>
             <div id="logowrap">
-                <img id="logo" src="images/BFF_logo.png" border="0">
+                <a href="index.php"><img id="logo" src="images/BFF_logo.png" border="0"></a>
             </div>
     </div>
     <div class="clear"></div>
