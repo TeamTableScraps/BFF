@@ -2,6 +2,10 @@
 
 require_once('header.php');
 
+if(!$user->valid){
+    header("Location: index.php");
+}
+
 echo "
     <table class='addr_table' align='center'>
     <tr valign='top'>
