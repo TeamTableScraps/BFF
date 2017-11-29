@@ -10,7 +10,7 @@ $sqlUser = 'root';
 //MySQL Password
 $sqlPass = '';
 //MySQL Database
-$dbName = 'blackfeatherfestival';
+$dbName = 'blackfeather';
 //Encryption key
 $aesKey = 'BFF';
 

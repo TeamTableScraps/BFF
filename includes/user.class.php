@@ -34,8 +34,8 @@ class User{
         $checkQuery = "
             SELECT
                 user_ID,
-                first_name,
-                last_name
+                AES_DECRYPT(first_name, '$aesKey') as first_name, 
+                AES_DECRYPT(last_name, '$aesKey') as last_name
             FROM users
             WHERE AES_DECRYPT(email, '$aesKey') = '$this->email'
             AND AES_DECRYPT(password, '$aesKey') = '" . decryptString($password) . "'

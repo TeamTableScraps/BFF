@@ -179,7 +179,7 @@ body{
 }
 
 .button_modern{
-    background-color: #70814F;
+    background-color: #703a46;
     border:1px solid;
     min-width: 100%;
     height: 45px;
@@ -229,6 +229,15 @@ body{
     .rightAlign{
         text-align: left !important;
     }
+
+    .addr_table{
+        display: block !important;
+    }
+
+    .addr_table_td{
+        display: inline-block !important;
+        min-width: 100% !important;
+    }
 }
 
 .padded{
@@ -267,15 +276,7 @@ body{
     text-align: right;
 }
 
-.info_table th {
-    
-	border: 1px solid black;
-    
-	padding: 15px;
-
-}
-
-.info_table td {
+.info_table{
     
 	border: 1px solid black;
     
@@ -291,4 +292,69 @@ h2 {
      
 	font-weight: bold;
 
+}
+
+.addr_table{
+    background: #C5D1AC;
+}
+
+.addr_table_td{
+    min-width: 350px;
+    width: 33%;
+}
+
+.addr_table_inner{
+    width:100%;
+    border-collapse: collapse;
+    border: 1px solid #404040;
+}
+
+.addr_header_row{
+    font-size: large;
+}
+
+.addr_header{
+    padding-top: 12px;
+    padding-bottom: 6px;
+    font-weight: bold;
+    color: #000000;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.noTopPadding{
+    padding-top: 0px!important;
+}
+
+.addr_label{
+    padding-left: 12px;
+    padding-right: 12px;
+    /*width: 50%;*/
+    white-space: nowrap;
+    color: #000000;
+}
+
+.addr_button_cell1{
+    padding-top: 10px;
+}
+.addr_button_cell2{
+
+}
+
+.accountInfoCells{
+    padding-left: 6px;
+    padding-right: 6px;
+    white-space: nowrap;
+    color: #000000;
+}
+
+.noPadding{
+    padding-top: 0px !important;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.defaultbg{
+    background:#e6e2d7;
 }

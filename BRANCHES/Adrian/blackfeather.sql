@@ -86,8 +86,8 @@ INSERT INTO vendors (user_ID, booth_ID, years_active) VALUES
 ;
 
 INSERT INTO sponsors (user_ID, sponsorship_level, years_active) VALUES
-  (7, 'silver', 2),
-  (8, 'platinum', 5)
+  (7, AES_ENCRYPT('Silver', 'BFF'), 2),
+  (8, AES_ENCRYPT('Platinum', 'BFF'), 5)
 ;
 
 COMMIT;
