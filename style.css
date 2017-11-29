@@ -267,7 +267,15 @@ body{
     text-align: right;
 }
 
-.info_table, th, td {
+.info_table th {
+    
+	border: 1px solid black;
+    
+	padding: 15px;
+
+}
+
+.info_table td {
     
 	border: 1px solid black;
     
