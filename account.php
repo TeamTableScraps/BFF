@@ -113,25 +113,26 @@ echo '
 		</tr>    
 ';
 
-$sponsorQuery = "
+$vendorQuery = "
     SELECT
         user_ID,
-        AES_DECRYPT(sponsorship_level, '$aesKey') as sponsorship_level,
-        years_active
-    FROM sponsors
+        booth_ID,
+        years_active,
+        vendor_type
+    FROM vendors
 ";
-$sponsorName = "ERROR";
-$sponsors = $MySQLi->query($sponsorQuery);
+$vendorName = "ERROR";
+$vendors = $MySQLi->query($vendorQuery);
 
-if($sponsors != false){
-    if ($sponsors->num_rows > 0) {
-        while($r = $sponsors->fetch_array()){
+if($vendors != false){
+    if ($vendors->num_rows > 0) {
+        while($r = $vendors->fetch_array()){
             $userQuery = "SELECT AES_DECRYPT(first_name, '$aesKey') as first_name, AES_DECRYPT(last_name, '$aesKey') as last_name FROM users WHERE user_ID = '".$r['user_ID']."' LIMIT 1";
             $userResult = $MySQLi->query($userQuery);
             if($userResult != false){
                 if ($userResult->num_rows > 0) {
                     while($u = $userResult->fetch_array()){
-                        $sponsorName = $u['first_name']." ".$u['last_name'];
+                        $vendorName = $u['first_name']." ".$u['last_name'];
                     }
                 }
             }
@@ -141,11 +142,11 @@ if($sponsors != false){
 
             echo "
                 <tr>
-                    <td>".$sponsorName."</td>
-                    <td>".$r['sponsorship_level']."</td>
-                    <td>".$r['years_active']."</td>
-                    <td>TODO</td>
-                    <td>TODO</td>
+                    <td class=\"info_table\">".$vendorName."</td>
+                    <td class=\"info_table\">".$r['vendor_type']."</td>
+                    <td class=\"info_table\">".$r['years_active']."</td>
+                    <td class=\"info_table\">TODO</td>
+                    <td class=\"info_table\">TODO</td>
                 </tr>
             ";
         }
@@ -184,9 +185,50 @@ echo'
         
 		<tr>
             
-			<!--Fill from database-->
-        
-		</tr>
+';
+
+$sponsorQuery = "
+    SELECT
+        user_ID,
+        AES_DECRYPT(sponsorship_level, '$aesKey') as sponsorship_level,
+        years_active
+    FROM sponsors
+";
+$sponsorName = "ERROR";
+$sponsors = $MySQLi->query($sponsorQuery);
+
+if($sponsors != false){
+    if ($sponsors->num_rows > 0) {
+        while($r = $sponsors->fetch_array()){
+            $userQuery = "SELECT AES_DECRYPT(first_name, '$aesKey') as first_name, AES_DECRYPT(last_name, '$aesKey') as last_name FROM users WHERE user_ID = '".$r['user_ID']."' LIMIT 1";
+            $userResult = $MySQLi->query($userQuery);
+            if($userResult != false){
+                if ($userResult->num_rows > 0) {
+                    while($u = $userResult->fetch_array()){
+                        $sponsorName = $u['first_name']." ".$u['last_name'];
+                    }
+                }
+            }
+            else{
+                die("Query error");
+            }
+
+            echo "
+                <tr>
+                    <td class=\"info_table\">".$sponsorName."</td>
+                    <td class=\"info_table\">".$r['sponsorship_level']."</td>
+                    <td class=\"info_table\">".$r['years_active']."</td>
+                    <td class=\"info_table\">TODO</td>
+                    <td class=\"info_table\">TODO</td>
+                </tr>
+            ";
+        }
+    }
+}else{
+    die("Query error");
+}
+
+echo'	</tr>
         
 		</table>
     
