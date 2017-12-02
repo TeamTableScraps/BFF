@@ -5,10 +5,12 @@ class User{
     public $fname;
     public $lname;
     public $email;
+    public $phone;
     public $password;
     public $valid;
     public $isVendor;
     public $isSponsor;
+    public $isOrganiser;
 
     function User($email, $password){
         $this->email = $email;
@@ -21,6 +23,7 @@ class User{
         }
         $this->isVendor = false;
         $this->isSponsor = false;
+        $this->isOrganiser = false;
     }
 
     function authenticate(){
@@ -35,7 +38,9 @@ class User{
             SELECT
                 user_ID,
                 AES_DECRYPT(first_name, '$aesKey') as first_name, 
-                AES_DECRYPT(last_name, '$aesKey') as last_name
+                AES_DECRYPT(last_name, '$aesKey') as last_name,
+                AES_DECRYPT(email, '$aesKey') as email,
+                AES_DECRYPT(phone, '$aesKey') as phone
             FROM users
             WHERE AES_DECRYPT(email, '$aesKey') = '$this->email'
             AND AES_DECRYPT(password, '$aesKey') = '" . decryptString($password) . "'
@@ -48,6 +53,8 @@ class User{
                     $this->userID = $r["user_ID"];
                     $this->fname = $r["first_name"];
                     $this->lname = $r["last_name"];
+                    $this->email = $r["email"];
+                    $this->phone = $r["phone"];
                 }
                 $return = true;
             } else {

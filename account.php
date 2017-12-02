@@ -26,24 +26,21 @@ echo "
             </tr>
             <tr>
                 <td class='addr_label'>Phone:</td>
-                <td class='addr_label'>TODO</td>
+                <td class='addr_label'>".$user->phone."</td>
             </tr>
             <tr><td colspan='2' align='center' class='addr_label'>&nbsp;</td></tr>
             <tr><td colspan='2' align='center' class='addr_label'>&nbsp;</td></tr>
             <tr>
                 <td class='addr_button_cell1' colspan='2'>
-                    <form action='account_edit_pop.php' method='post' class='accountPop'>
-                    <input type='hidden' name='social' value='true'/>
+                    <form action='TODO.php' method='post' class='popup'>
                     <input style='padding: 0px 0px;' class='button_modern varPadding' type='submit' name='submit' value='Edit Account'/>
                     </form>
                 </td>
             </tr>
             <tr>
 			    <td class='addr_button_cell2' colspan='2'>
-			        <form method='post' action='address_edit_pop.php' class='accountPop'>
-			        <input type='hidden' name='address_id' value='0'>
-                    <input type='hidden' name='address_type' value='none'>
-                    <input style='padding: 0px 0px;' class='button_modern varPadding' type='submit' name='submit' value='Add New Address'/>
+			        <form method='post' action='TODO.php' class='popup'>
+                    <input style='padding: 0px 0px;' class='button_modern varPadding' type='submit' name='submit' value='Change Password'/>
                     </form>
                 </td>
 			</tr>
@@ -55,9 +52,9 @@ echo "
     <td class='addr_table_td'>
         <table class='addr_table_inner'>
             <tr class='addr_header_row'>
-                <td colspan='2' align='center' class='addr_header'>TODO</td>
+                <td colspan='2' align='center' class='addr_header'>REGISTER AS A VENDOR</td>
             </tr>
-            <tr><td colspan='2' align='center' class='addr_label'>&nbsp;</td></tr>
+            <tr><td colspan='2' align='center' class='addr_label'>&nbsp;TODO</td></tr>
             <tr><td colspan='2' align='center' class='addr_label'>&nbsp;</td></tr>
             <tr><td colspan='2' align='center' class='addr_label'>&nbsp;</td></tr>
             <tr><td colspan='2' align='center' class='addr_label'>&nbsp;</td></tr>
@@ -71,9 +68,9 @@ echo "
     <td class='addr_table_td'>
         <table class='addr_table_inner'>
             <tr class='addr_header_row'>
-                <td colspan='2' align='center' class='addr_header'>TODO</td>
+                <td colspan='2' align='center' class='addr_header'>REGISTER AS A SPONSOR</td>
             </tr>
-            <tr><td colspan='2' align='center' class='addr_label'>&nbsp;</td></tr>
+            <tr><td colspan='2' align='center' class='addr_label'>&nbsp;TODO</td></tr>
             <tr><td colspan='2' align='center' class='addr_label'>&nbsp;</td></tr>
             <tr><td colspan='2' align='center' class='addr_label'>&nbsp;</td></tr>
             <tr><td colspan='2' align='center' class='addr_label'>&nbsp;</td></tr>
@@ -127,12 +124,20 @@ $vendors = $MySQLi->query($vendorQuery);
 if($vendors != false){
     if ($vendors->num_rows > 0) {
         while($r = $vendors->fetch_array()){
-            $userQuery = "SELECT AES_DECRYPT(first_name, '$aesKey') as first_name, AES_DECRYPT(last_name, '$aesKey') as last_name FROM users WHERE user_ID = '".$r['user_ID']."' LIMIT 1";
+            $userQuery = "
+              SELECT 
+                AES_DECRYPT(first_name, '$aesKey') as first_name, 
+                AES_DECRYPT(last_name, '$aesKey') as last_name, 
+                AES_DECRYPT(email, '$aesKey') as email,
+                AES_DECRYPT(phone, '$aesKey') as phone 
+              FROM users WHERE user_ID = '".$r['user_ID']."' LIMIT 1";
             $userResult = $MySQLi->query($userQuery);
             if($userResult != false){
                 if ($userResult->num_rows > 0) {
                     while($u = $userResult->fetch_array()){
                         $vendorName = $u['first_name']." ".$u['last_name'];
+                        $vendorPhone = $u['phone'];
+                        $vendorEmail = $u['email'];
                     }
                 }
             }
@@ -145,8 +150,8 @@ if($vendors != false){
                     <td class=\"info_table\">".$vendorName."</td>
                     <td class=\"info_table\">".$r['vendor_type']."</td>
                     <td class=\"info_table\">".$r['years_active']."</td>
-                    <td class=\"info_table\">TODO</td>
-                    <td class=\"info_table\">TODO</td>
+                    <td class=\"info_table\">$vendorEmail</td>
+                    <td class=\"info_table\">$vendorPhone</td>
                 </tr>
             ";
         }
@@ -200,12 +205,20 @@ $sponsors = $MySQLi->query($sponsorQuery);
 if($sponsors != false){
     if ($sponsors->num_rows > 0) {
         while($r = $sponsors->fetch_array()){
-            $userQuery = "SELECT AES_DECRYPT(first_name, '$aesKey') as first_name, AES_DECRYPT(last_name, '$aesKey') as last_name FROM users WHERE user_ID = '".$r['user_ID']."' LIMIT 1";
+            $userQuery = "
+              SELECT 
+                AES_DECRYPT(first_name, '$aesKey') as first_name, 
+                AES_DECRYPT(last_name, '$aesKey') as last_name, 
+                AES_DECRYPT(email, '$aesKey') as email,
+                AES_DECRYPT(phone, '$aesKey') as phone 
+              FROM users WHERE user_ID = '".$r['user_ID']."' LIMIT 1";
             $userResult = $MySQLi->query($userQuery);
             if($userResult != false){
                 if ($userResult->num_rows > 0) {
                     while($u = $userResult->fetch_array()){
                         $sponsorName = $u['first_name']." ".$u['last_name'];
+                        $sponsorPhone = $u['phone'];
+                        $sponsorEmail = $u['email'];
                     }
                 }
             }
@@ -218,8 +231,8 @@ if($sponsors != false){
                     <td class=\"info_table\">".$sponsorName."</td>
                     <td class=\"info_table\">".$r['sponsorship_level']."</td>
                     <td class=\"info_table\">".$r['years_active']."</td>
-                    <td class=\"info_table\">TODO</td>
-                    <td class=\"info_table\">TODO</td>
+                    <td class=\"info_table\">$sponsorEmail</td>
+                    <td class=\"info_table\">$sponsorPhone</td>
                 </tr>
             ";
         }

@@ -21,6 +21,9 @@ if (isset($_POST['toSubmit']) && $_POST['toSubmit'] == 'true') {
     if (trim($lname) == ''){
         $errorMsg .= '&#8226; Last name ';
     }
+    if (trim($phone) == ''){
+        $errorMsg .= '&#8226; Phone Number ';
+    }
     if (trim($email) == ''){
         $errorMsg .= '&#8226; Email ';
     }
@@ -41,6 +44,7 @@ if (isset($_POST['toSubmit']) && $_POST['toSubmit'] == 'true') {
         $email = $MySQLi->escape_string($email);
         $fname = $MySQLi->escape_string($fname);
         $lname = $MySQLi->escape_string($lname);
+        $phone = $MySQLi->escape_string($phone);
         $pass = $MySQLi->escape_string($pass);
 
         //Double check that email doesn't already exist
@@ -49,12 +53,13 @@ if (isset($_POST['toSubmit']) && $_POST['toSubmit'] == 'true') {
         if ($check->num_rows == 0) {
             //Add user to the database
             $addQuery = "
-              INSERT INTO users (first_name, last_name, email, password) 
+              INSERT INTO users (first_name, last_name, email, password, phone) 
               VALUES(
                 aes_encrypt('$fname','$aesKey'),
                 aes_encrypt('$lname','$aesKey'),
                 aes_encrypt('$email','$aesKey'),
-                aes_encrypt('$pass','$aesKey')
+                aes_encrypt('$pass','$aesKey'),
+                aes_encrypt('$phone','$aesKey')
               )";
             $add = $MySQLi->query($addQuery);
 
@@ -86,6 +91,9 @@ if(!isset($fname)){
 if(!isset($lname)){
     $lname = '';
 }
+if(!isset($phone)){
+    $phone = '';
+}
 if(!isset($email)){
     $email = '';
 }
@@ -112,6 +120,9 @@ echo "
         <tr><td colspan='2' class='addr_label noPadding'>Last Name</td></tr>
         <tr><td colspan='2'><input class='input_modern' type='text' name='lname' value='$lname'></td></tr>
         
+        <tr><td colspan='2' class='addr_label noPadding'>Phone Number</td></tr>
+        <tr><td colspan='2'><input class='input_modern' type='text' name='phone' value='$phone'></td></tr>
+        
         <tr><td colspan='2' class='addr_label noPadding'>Email Address</td></tr>
         <tr><td colspan='2'><input class='input_modern' type='text' name='email' value='$email'></td></tr>
         
@@ -120,8 +131,6 @@ echo "
         
         <tr><td colspan='2' class='addr_label noPadding'>Confirm Password</td></tr>
         <tr><td colspan='2'><input class='input_modern' type='password' name='confirmPass'></td></tr>
-        
-        <tr><td colspan='2' class='addr_label noPadding'>TODO: 'I am a vendor/sponsor'</td></tr>
         
         <tr><td colspan='2'><input type='submit' value='Register' class='button_modern varPadding'/></td></tr>
 ";
