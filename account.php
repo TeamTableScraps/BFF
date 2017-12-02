@@ -93,7 +93,7 @@ echo '
         
 		<h2>Registered Vendors</h2>
         
-		<table class="defaultbg">
+		<table class="defaultbg fullwidth">
         
 		<tr>
             
@@ -172,7 +172,7 @@ echo'
         
 		<h2>Registered Sponsors</h2>
         
-		<table class="defaultbg">
+		<table class="defaultbg fullwidth">
         
 		<tr>
             

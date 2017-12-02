@@ -358,3 +358,11 @@ h2 {
 .defaultbg{
     background:#e6e2d7;
 }
+
+.blackfont{
+    color: black;
+}
+
+.fullwidth{
+    width: 100%;
+}

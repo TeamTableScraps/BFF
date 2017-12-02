@@ -69,6 +69,16 @@ if($sponsors != false){
 echo'
         </p>
         <h4>Interested in becoming a sponsor?</h4>
+';
+
+if($user->valid){
+    echo "<a href='account.php' class='blackfont'>Register on the account management page.</a>";
+}
+else{
+    echo "<a href='login.php' class='popup blackfont'>Log in and register from the account management page.</a>";
+}
+
+echo'
     </div>
     
     <!--Contact Section-->
