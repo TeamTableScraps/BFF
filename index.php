@@ -23,7 +23,51 @@ echo '
     <div id="sponsors" class="container-fluid">
         <h2>Sponsors</h2>
         <h4>Thanks to our wonderful sponsors!</h4>
-        <p>Sponsors list goes here...</p>
+        <p>';
+
+$sponsorQuery = "
+    SELECT
+        user_ID,
+        AES_DECRYPT(sponsorship_level, '$aesKey') as sponsorship_level,
+        years_active
+    FROM sponsors
+";
+$sponsorName = "ERROR";
+$sponsors = $MySQLi->query($sponsorQuery);
+
+if($sponsors != false){
+    if ($sponsors->num_rows > 0) {
+        while($r = $sponsors->fetch_array()){
+            $userQuery = "
+              SELECT 
+                AES_DECRYPT(first_name, '$aesKey') as first_name, 
+                AES_DECRYPT(last_name, '$aesKey') as last_name, 
+                AES_DECRYPT(email, '$aesKey') as email,
+                AES_DECRYPT(phone, '$aesKey') as phone 
+              FROM users WHERE user_ID = '".$r['user_ID']."' LIMIT 1";
+            $userResult = $MySQLi->query($userQuery);
+            if($userResult != false){
+                if ($userResult->num_rows > 0) {
+                    while($u = $userResult->fetch_array()){
+                        $sponsorName = $u['first_name']." ".$u['last_name'];
+                        $sponsorPhone = $u['phone'];
+                        $sponsorEmail = $u['email'];
+                    }
+                }
+            }
+            else{
+                die("Query error");
+            }
+
+            echo $sponsorName."<br/>";
+        }
+    }
+}else{
+    die("Query error");
+}
+
+echo'
+        </p>
         <h4>Interested in becoming a sponsor?</h4>
     </div>
     
