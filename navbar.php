@@ -13,9 +13,9 @@ echo '
         <div class="collapse navbar-collapse" id="navBar">
             <ul class="nav navbar-nav">
                 <li><a href="index.php#about">About</a></li>
-                <li><a href="index.php#vendors">Vendors</a></li>
-                <li><a href="index.php#sponsors">Sponsors</a></li>
                 <li><a href="index.php#contact">Contact Us</a></li>
+                <li><a href="vendors.php">Vendors</a></li>
+                <li><a href="sponsors.php">Sponsors</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
 ';
