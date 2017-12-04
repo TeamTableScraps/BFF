@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 04, 2017 at 08:53 PM
+-- Generation Time: Dec 02, 2017 at 12:00 AM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `blackfeather`
 --
+CREATE DATABASE IF NOT EXISTS `blackfeather` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `blackfeather`;
 
 -- --------------------------------------------------------
 
@@ -34,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `booths` (
   `is_available` tinyint(1) NOT NULL,
   PRIMARY KEY (`booth_ID`),
   UNIQUE KEY `booth_ID` (`booth_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=65 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `booths`
@@ -45,63 +47,6 @@ INSERT INTO `booths` (`booth_ID`, `is_available`) VALUES
 (2, 1),
 (3, 1),
 (4, 0),
-(10, 1),
-(9, 1),
-(8, 1),
-(11, 1),
-(12, 1),
-(13, 1),
-(14, 1),
-(15, 1),
-(16, 1),
-(17, 1),
-(18, 1),
-(19, 1),
-(20, 1),
-(21, 1),
-(22, 1),
-(23, 1),
-(24, 1),
-(25, 1),
-(26, 1),
-(27, 1),
-(28, 1),
-(29, 1),
-(30, 1),
-(31, 1),
-(32, 1),
-(33, 1),
-(34, 1),
-(35, 1),
-(36, 1),
-(37, 1),
-(38, 1),
-(39, 1),
-(40, 1),
-(41, 1),
-(42, 1),
-(43, 1),
-(44, 1),
-(45, 1),
-(46, 1),
-(47, 1),
-(48, 1),
-(49, 1),
-(50, 1),
-(51, 1),
-(52, 1),
-(53, 1),
-(54, 1),
-(55, 1),
-(56, 1),
-(57, 1),
-(58, 1),
-(59, 1),
-(60, 1),
-(61, 1),
-(62, 1),
-(63, 1),
-(64, 1),
 (5, 1),
 (6, 1),
 (7, 1);
@@ -115,10 +60,8 @@ INSERT INTO `booths` (`booth_ID`, `is_available`) VALUES
 DROP TABLE IF EXISTS `sponsors`;
 CREATE TABLE IF NOT EXISTS `sponsors` (
   `user_ID` int(10) NOT NULL,
-  `sponsorship_level` blob NOT NULL,
-  `spons_name` blob NOT NULL,
-  `spons_phone` blob NOT NULL,
-  `spons_email` blob NOT NULL,
+  `sponsorship_level` blob,
+  `years_active` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`user_ID`),
   UNIQUE KEY `user_ID` (`user_ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -127,9 +70,9 @@ CREATE TABLE IF NOT EXISTS `sponsors` (
 -- Dumping data for table `sponsors`
 --
 
-INSERT INTO `sponsors` (`user_ID`, `sponsorship_level`, `spons_name`, `spons_phone`, `spons_email`) VALUES
-(7, 0x87762c49d32bea947450731b9baf13c3, '', '', ''),
-(8, 0x612258607127bc51530b12b1c837aa2d, '', '', '');
+INSERT INTO `sponsors` (`user_ID`, `sponsorship_level`, `years_active`) VALUES
+(7, 0x87762c49d32bea947450731b9baf13c3, 2),
+(8, 0x612258607127bc51530b12b1c837aa2d, 5);
 
 -- --------------------------------------------------------
 
@@ -174,16 +117,21 @@ INSERT INTO `users` (`user_ID`, `first_name`, `last_name`, `email`, `password`, 
 DROP TABLE IF EXISTS `vendors`;
 CREATE TABLE IF NOT EXISTS `vendors` (
   `user_ID` int(10) NOT NULL,
-  `booth_ID` int(10) NOT NULL DEFAULT '0',
-  `bznz_name` varchar(50) NOT NULL,
-  `bznz_phone` varchar(16) NOT NULL,
-  `bznz_url` varchar(150) NOT NULL,
-  `bznz_email` varchar(50) NOT NULL,
-  `description` varchar(1000) NOT NULL,
+  `booth_ID` int(10) DEFAULT NULL,
+  `years_active` smallint(6) DEFAULT NULL,
+  `vendor_type` varchar(100) NOT NULL,
   PRIMARY KEY (`user_ID`),
   UNIQUE KEY `user_ID` (`user_ID`),
   UNIQUE KEY `booth_ID` (`booth_ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `vendors`
+--
+
+INSERT INTO `vendors` (`user_ID`, `booth_ID`, `years_active`, `vendor_type`) VALUES
+(5, 1, 2, 'Hot dogs'),
+(6, 4, 5, 'Wings');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
