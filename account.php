@@ -70,7 +70,7 @@ echo "
             <tr><td colspan='2' align='center' class='addr_label'>&nbsp;</td></tr>
             <tr>
 			    <td class='addr_button_cell1' colspan='2'>
-			        <form method='post' action='TODO.php' class='popupForm'>
+			        <form method='post' action='vendorRegistration.php' class='popupForm'>
                     <input style='padding: 0px 0px;' class='button_modern varPadding' type='submit' name='submit' value='Register as Vendor'/>
                     </form>
                 </td>
