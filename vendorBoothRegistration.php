@@ -72,8 +72,7 @@ echo "
         <tr class='addr_header_row'><td colspan='2' align='center' class='addr_header noTopPadding'>Register</td></tr>
         <tr><td colspan='2' class='addr_label'>&nbsp;</td></tr>
         <tr><td colspan='2' class='addr_label noPadding'>Booth ID</td></tr>
-        <tr><td colspan='2'><input type='submit' value='Register' class='button_modern varPadding'/></td></tr>
-        <tr><select name='booth_ID' required>";
+        <tr><td colspan='2'><select name='booth_ID' required>";
 while ($row = $booths->fetch_assoc()) {
     var_dump($row);
     $x = $row["booth_ID"];
@@ -81,7 +80,8 @@ while ($row = $booths->fetch_assoc()) {
     echo "<option value=$x>$strx</option>";
 }
 echo "
-        </select></tr>";
+        </select></td></tr>
+        <tr><td colspan='2'><input type='submit' value='Register' class='button_modern varPadding'/></td></tr>";
 
 if ($errorMsg != '' || $altError != '') {
     if($altError != ''){
