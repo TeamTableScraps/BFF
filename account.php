@@ -139,7 +139,7 @@ else{
                 </tr>
                 <tr>
                     <td class='addr_button_cell2' colspan='2'>
-                        <form method='post' action='registerBooth.php' class='popupForm'>
+                        <form method='post' action='vendorBoothRegistration.php' class='popupForm'>
                         <input style='padding: 0px 0px;' class='button_modern varPadding' type='submit' name='submit' value='Register A Booth'/>
                         </form>
                     </td>
