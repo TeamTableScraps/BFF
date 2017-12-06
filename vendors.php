@@ -1,7 +1,7 @@
 <?php
 require_once("header.php");
 
-echo "<img src='Images/Venue%20Map.jpg'>";
+echo "<img id='map' src='Images/Venue%20Map.jpg'>";
 
 echo '
     

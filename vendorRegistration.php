@@ -38,24 +38,18 @@ if (isset($_POST['toSubmit']) && $_POST['toSubmit'] == 'true') {
         $bznz_phone = $MySQLi->escape_string($bznz_phone);
         $bznz_url = $MySQLi->escape_string($bznz_url);
         $description = $MySQLi->escape_string($description);
-        //TODO
+
         $currentUserID = $user->userID;
         $addQuery = $MySQLi->query("
-          INSERT INTO vendors
-          (`user_ID`, `bznz_name`, `bznz_email`, `bznz_phone`, `bznz_url`, `description`)
-          VALUES
-          ('$currentUserID', '$bznz_name', '$bznz_email', '$bznz_phone', '$bznz_url', '$description')");
-
-        /*echo "<pre>";
-        print_r($addQuery->fetch_all());
-        echo "<pre>";
-        exit();*/
+          INSERT INTO vendors(user_ID, booth_ID, bznz_name, bznz_phone, bznz_url, bznz_email, description) 
+          VALUES ($user->userID,0,'$bznz_name','$bznz_phone','$bznz_url','$bznz_email','$description')
+        ");
 
         if(!$addQuery){
             $altError = "Query failed.";
         }
         elseif ($addQuery->num_rows < 1){
-            $altError = "Query stil failed.";
+            $altError = "Query failed.";
         }
         echo "<script>$.colorbox.close();</script>";
     }
