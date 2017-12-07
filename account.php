@@ -210,7 +210,7 @@ else{
                 <tr><td colspan='2' align='center' class='addr_label addr_button_cell1' style='height:55px;'>&nbsp;</td></tr>
                 <tr>
                     <td class='addr_button_cell2' colspan='2'>
-                        <form method='post' action='TODO.php' class='popupForm'>
+                        <form method='post' action='sponsorRegistration.php' class='popupForm'>
                         <input style='padding: 0px 0px;' class='button_modern varPadding' type='submit' name='submit' value='Become a Sponsor'/>
                         </form>
                     </td>
