@@ -10,6 +10,19 @@ foreach ($_POST as $k => $v) {
 }
 unset($k, $v);
 
+$originalBooth = 0;
+$boothQuery = $MySQLi->query("
+    SELECT booth_ID FROM vendors
+    WHERE user_ID = ".$user->userID."
+");
+if($boothQuery != false){
+    if ($boothQuery->num_rows > 0) {
+        while($r = $boothQuery->fetch_array()){
+            $originalBooth = $r['booth_ID'];
+        }
+    }
+}
+
 //If the form was already submitted
 if (isset($_POST['toSubmit']) && $_POST['toSubmit'] == 'true') {
     $errorMsg = '';
@@ -33,6 +46,13 @@ if (isset($_POST['toSubmit']) && $_POST['toSubmit'] == 'true') {
           UPDATE booths
           SET `is_available` = 0
           WHERE `booth_ID` = $booth_id");
+        if($originalBooth > 0){
+            $makeAvailable = $MySQLi->query("
+                UPDATE booths
+                SET is_available = 1
+                WHERE booth_ID = ".$originalBooth."
+            ");
+        }
 
         if(!$setBoothsQuery || !$setVendorQuery){
             $altError = "Query failed.";
