@@ -123,7 +123,7 @@ echo "
         <tr><td colspan='2' class='addr_label noPadding'>Description</td></tr>
         <tr><td colspan='2'><input class='input_modern' type='text' name='description' value='$description'></td></tr>
         
-        <tr><td colspan='2'><input type='submit' value='Register' class='button_modern varPadding'/></td></tr>
+        <tr><td colspan='2'><input type='submit' value='Update' class='button_modern varPadding'/></td></tr>
 ";
 
 if ($errorMsg != '' || $altError != '') {
