@@ -10,6 +10,28 @@ foreach ($_POST as $k => $v) {
 }
 unset($k, $v);
 
+if(!isset($bznz_name)){
+    $bznz_name = '';
+}
+if(!isset($bznz_email)){
+    $bznz_email = '';
+}
+if(!isset($bznz_phone)){
+    $bznz_phone = '';
+}
+if(!isset($bznz_url)){
+    $bznz_url = '';
+}
+if(!isset($description)){
+    $description = '';
+}
+if(!isset($altError)){
+    $altError = '';
+}
+if(!isset($errorMsg)){
+    $errorMsg = '';
+}
+
 //If the form was already submitted
 if (isset($_POST['toSubmit']) && $_POST['toSubmit'] == 'true') {
     $errorMsg = '';
@@ -27,9 +49,9 @@ if (isset($_POST['toSubmit']) && $_POST['toSubmit'] == 'true') {
     if (trim($bznz_email) == '') {
         $errorMsg .= '&#8226; Business Email ';
     }
-    if (trim($description) == '') {
+    /*if (trim($description) == '') {
         $errorMsg .= '&#8226; Description ';
-    }
+    }*/
 
     if($errorMsg == '' && $altError == ''){
         //Prevent injection
@@ -53,28 +75,6 @@ if (isset($_POST['toSubmit']) && $_POST['toSubmit'] == 'true') {
         }
         echo "<script>$.colorbox.close();</script>";
     }
-}
-
-if(!isset($bznz_name)){
-    $bznz_name = '';
-}
-if(!isset($bznz_email)){
-    $bznz_email = '';
-}
-if(!isset($bznz_phone)){
-    $bznz_phone = '';
-}
-if(!isset($bznz_url)){
-    $bznz_url = '';
-}
-if(!isset($description)){
-    $description = '';
-}
-if(!isset($altError)){
-    $altError = '';
-}
-if(!isset($errorMsg)){
-    $errorMsg = '';
 }
 
 ############
