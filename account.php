@@ -24,6 +24,12 @@ else{
 
 $checkSponsor = $MySQLi->query("SELECT * FROM sponsors WHERE user_ID = {$user->userID}");
 if($checkSponsor->num_rows > 0){
+    while ($r = $checkSponsor->fetch_array(MYSQLI_ASSOC)) {
+        $sponsorship_level = $r["sponsorship_level"];
+        $spons_name = $r["spons_name"];
+        $spons_phone = $r["spons_phone"];
+        $spons_email = $r["spons_email"];
+    }
     $registeredSponsor = true;
 }
 else{
@@ -156,40 +162,65 @@ else{
     ";
 }
 
-echo"    
-    <td class='addr_table_td'>
-        <table class='addr_table_inner'>
-            <tr class='addr_header_row'>
-                <td colspan='2' align='center' class='addr_header'>REGISTER AS A SPONSOR</td>
-            </tr>
-            <tr>
-                <td class='addr_label'>Sponsorship Level:</td>
-                <td class='addr_label'></td>
-            </tr>
-            <tr>
-                <td class='addr_label'>Years participated:</td>
-                <td class='addr_label'></td>
-            </tr>
-            <tr><td colspan='2' align='center' class='addr_label'>&nbsp;</td></tr>
-            <tr><td colspan='2' align='center' class='addr_label'>&nbsp;</td></tr>
-            <tr><td colspan='2' align='center' class='addr_label'>&nbsp;</td></tr>
-            <tr>
-			    <td class='addr_button_cell1' colspan='2'>
-			        <form method='post' action='TODO.php' class='popupForm'>
-                    <input style='padding: 0px 0px;' class='button_modern varPadding' type='submit' name='submit' value='Register as Sponsor'/>
-                    </form>
-                </td>
-			</tr>
-            <tr>
-			    <td class='addr_button_cell2' colspan='2'>
-			        <form method='post' action='sponsors.php' class=''>
-                    <input style='padding: 0px 0px;' class='button_modern varPadding' type='submit' name='submit' value='Make Sponsorship'/>
-                    </form>
-                </td>
-			</tr>
-        </table>
-    </td>
-";
+if($registeredSponsor){
+    echo"
+        <td class='addr_table_td'>
+            <table class='addr_table_inner'>
+                <tr class='addr_header_row'>
+                    <td colspan='2' align='center' class='addr_header'>SPONSOR INFORMATION</td>
+                </tr>
+                <tr>
+                    <td class='addr_label'>Sponsor Name:</td>
+                    <td class='addr_label'>".$spons_name."</td>
+                </tr>
+                <tr>
+                    <td class='addr_label'>Sponsor Email:</td>
+                    <td class='addr_label'>".$spons_email."</td>
+                </tr>
+                <tr>
+                    <td class='addr_label'>Sponsor Phone:</td>
+                    <td class='addr_label'>".$spons_phone."</td>
+                </tr>
+                <tr><td colspan='2' align='center' class='addr_label'>&nbsp;</td></tr>
+                <tr><td colspan='2' align='center' class='addr_label'>&nbsp;</td></tr>
+                <tr><td colspan='2' align='center' class='addr_label addr_button_cell1' style='height:55px;'>&nbsp;</td></tr>
+                <tr>
+                    <td class='addr_button_cell2' colspan='2'>
+                        <form method='post' action='sponsorRegistration.php' class='popupForm'>
+                        <input style='padding: 0px 0px;' class='button_modern varPadding' type='submit' name='submit' value='Revoke Sponsorship'/>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    ";
+}
+else{
+    echo"
+        <td class='addr_table_td'>
+            <table class='addr_table_inner'>
+                <tr class='addr_header_row'>
+                    <td colspan='2' align='center' class='addr_header'>REGISTER AS A SPONSOR</td>
+                </tr>
+                <tr><td colspan='2' align='center' class='addr_label'>You have not registered as a sponsor.</td></tr>
+                <tr><td colspan='2' align='center' class='addr_label'>&nbsp;</td></tr>
+                <tr><td colspan='2' align='center' class='addr_label'>Become a sponsor today to keep</td></tr>
+                <tr><td colspan='2' align='center' class='addr_label'>the Black Feather Festival amazing!</td></tr>
+                <tr><td colspan='2' align='center' class='addr_label'>&nbsp;</td></tr>
+                <tr><td colspan='2' align='center' class='addr_label addr_button_cell1' style='height:55px;'>&nbsp;</td></tr>
+                <tr>
+                    <td class='addr_button_cell2' colspan='2'>
+                        <form method='post' action='TODO.php' class='popupForm'>
+                        <input style='padding: 0px 0px;' class='button_modern varPadding' type='submit' name='submit' value='Become a Sponsor'/>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    ";
+}
+
+
 
 
 echo"

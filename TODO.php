@@ -1,8 +1,6 @@
 <?php
 echo "TODO:<br/>
 Create a new registration form for organizers<br/>
-Edit account/change password on account page<br/>
 Sponsor registration<br/>
-<br/>
-
+Booth claim fixes: set back to available when vendors change booths, and add option to revoke claim on booth entirely<br/>
 ";
