@@ -23,8 +23,21 @@ if($boothQuery != false){
     }
 }
 
-//If the form was already submitted
-if (isset($_POST['toSubmit']) && $_POST['toSubmit'] == 'true') {
+if(isset($_GET['revoke'])){
+    $setVendorQuery = $MySQLi->query("
+          UPDATE vendors
+          SET `booth_ID` = 0
+          WHERE `user_ID` = {$user->userID}");
+    $makeAvailable = $MySQLi->query("
+                UPDATE booths
+                SET is_available = 1
+                WHERE booth_ID = ".$originalBooth."
+            ");
+    header("Location: account.php");
+    exit();
+}
+
+if(isset($_POST['toSubmit']) && $_POST['toSubmit'] == 'true') {
     $errorMsg = '';
     $altError = '';
     $booth_id = $_POST['booth_ID'];
@@ -89,10 +102,10 @@ echo "
     <form action='vendorBoothRegistration.php' name='register_form' method='post' class='popupForm'>
     <input type='hidden' name='toSubmit' value='true'/>
     <table class='padded' align='center'>
-        <tr class='addr_header_row'><td colspan='2' align='center' class='addr_header noTopPadding'>Register</td></tr>
+        <tr class='addr_header_row'><td colspan='2' align='center' class='addr_header noTopPadding'>Claim Booth</td></tr>
         <tr><td colspan='2' class='addr_label'>&nbsp;</td></tr>
-        <tr><td colspan='2' class='addr_label noPadding'>Booth ID</td></tr>
-        <tr><td colspan='2'><select name='booth_ID' required>";
+        <tr><td colspan='2' align='center' class='addr_label noPadding'>Booth ID</td></tr>
+        <tr><td colspan='2' align='center'><select name='booth_ID' required>";
 while ($row = $booths->fetch_assoc()) {
     var_dump($row);
     $x = $row["booth_ID"];
@@ -101,7 +114,8 @@ while ($row = $booths->fetch_assoc()) {
 }
 echo "
         </select></td></tr>
-        <tr><td colspan='2'><input type='submit' value='Register' class='button_modern varPadding'/></td></tr>";
+        ".($originalBooth > 0 ? '<tr><td colspan=\'2\' align=\'center\' class=\'addr_label noPadding\'><a href=\'vendorBoothRegistration.php?revoke=true\' class=\'popupForm\'>Revoke Booth Claim</a></td></tr>' : '')."
+        <tr><td colspan='2'><input type='submit' value='Claim' class='button_modern varPadding'/></td></tr>";
 
 if ($errorMsg != '' || $altError != '') {
     if($altError != ''){
