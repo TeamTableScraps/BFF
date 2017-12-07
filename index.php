@@ -8,29 +8,22 @@ echo '
     <!--About Section-->
     <div id="about" class="container-fluid">
         <h2>About the Event</h2>
-        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
-    
-    <!--Vendors Section-->
-    <div id="vendors" class="container-fluid bg-fade">
-        <h2>Vendors</h2>
-        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <h4>Join us for the Inaugural Black Feather Festival on Saturday, December 16, 2018!</h4>
+        <p>The Black Feather Festival is the newest art festival here on the Gulf Coast. Featuring works from local artists, great food, activities for the kids, and more, the Black Feather Festival is sure to be fun for the whole family! Admission is free. All proceeds from sponsorships and generous donations will be donated to local charities. Be sure to come join in on the fun on December 16th. You do not want to miss the Inaugural Black Feather Festival!</p>
     </div>
     
     <!--Sponsors Section-->
-    <div id="sponsors" class="container-fluid">
-        <h2>Sponsors</h2>
-        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <div id="sponsors" class="container-fluid bg-fade">
+        <h2>Thanks to our sponsors!</h2>
+        <h4>Without our generous sponsors, this event would not be possible. We would like to say a special thank you to our Platinum sponsors for this year.</h4>
+        <p>List platinum sponsors here</p>
 ';
 
 echo'
     </div>
     
     <!--Contact Section-->
-    <div id="contact" class="container-fluid bg-fade">
+    <div id="contact" class="container-fluid">
         <h2 class="text-center">Contact</h2>
         <div class="row">
             <div class="col-sm-5">
