@@ -38,7 +38,7 @@ if ($_POST['toSubmit'] == 'true'){
     if ($phone == ''){
         $errorMsg .= '&#8226; Phone Number ';
     }
-    if (strlen($bznz_phone) != 12){
+    if (strlen($phone) != 12){
         $altError .= 'Invalid phone number<br/>';
     }
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)){

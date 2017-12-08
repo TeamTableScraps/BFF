@@ -45,7 +45,7 @@ if ($_POST['toSubmit'] == 'true'){
     if (trim($spons_email) == ''){
         $errorMsg .= '&#8226; Sponsor Email<br />';
     }
-    if (strlen($bznz_phone) != 12){
+    if (strlen($spons_phone) != 12){
         $altError .= 'Invalid phone number<br/>';
     }
     if (!filter_var($spons_email, FILTER_VALIDATE_EMAIL)){

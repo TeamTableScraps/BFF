@@ -33,7 +33,7 @@ if (isset($_POST['toSubmit']) && $_POST['toSubmit'] == 'true') {
     if($pass != $confirmPass){
         $altError = 'The passwords did not match.';
     }
-    if (strlen($bznz_phone) != 12){
+    if (strlen($phone) != 12){
         $altError .= 'Invalid phone number<br/>';
     }
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
