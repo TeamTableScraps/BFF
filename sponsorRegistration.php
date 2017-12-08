@@ -69,7 +69,14 @@ if ($_POST['toSubmit'] == 'true'){
         $currentUserID = $user->userID;
         $insert_query = $MySQLi->query("
           INSERT INTO sponsors(user_ID, sponsorship_level, spons_name, spons_phone, spons_email)
-          VALUES (AES_ENCRYPT('$currentUserID', '$sponsorship_level', '$spons_name', '$spons_phone', '$spons_email')");
+          VALUES (
+            $currentUserID, 
+            AES_ENCRYPT('$sponsorship_level','$aesKey'), 
+            AES_ENCRYPT('$spons_name','$aesKey'), 
+            AES_ENCRYPT('$spons_phone','$aesKey'), 
+            AES_ENCRYPT('$spons_email','$aesKey')
+          )
+        ");
 
         echo "<script>$.colorbox.close();</script>";
     }

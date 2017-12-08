@@ -24,7 +24,7 @@ else{
 
 $checkSponsor = $MySQLi->query("
                                       SELECT 
-                                        AES_DECRYPT(user_ID, '$aesKey') as user_ID,
+                                        user_ID,
                                         AES_DECRYPT(sponsorship_level, '$aesKey') as sponsorship_level,
                                         AES_DECRYPT(spons_name, '$aesKey') as spons_name,
                                         AES_DECRYPT(spons_phone, '$aesKey') as spons_phone,
@@ -176,6 +176,7 @@ if($registeredSponsor){
                 <tr class='addr_header_row'>
                     <td colspan='2' align='center' class='addr_header'>SPONSOR INFORMATION</td>
                 </tr>
+                <tr><td colspan='2' align='center' class='addr_label' style='font-weight: bold;'>".strtoupper($sponsorship_level)." SPONSOR</td></tr>
                 <tr>
                     <td class='addr_label'>Sponsor Name:</td>
                     <td class='addr_label'>".$spons_name."</td>
@@ -189,11 +190,16 @@ if($registeredSponsor){
                     <td class='addr_label'>".$spons_phone."</td>
                 </tr>
                 <tr><td colspan='2' align='center' class='addr_label'>&nbsp;</td></tr>
-                <tr><td colspan='2' align='center' class='addr_label'>&nbsp;</td></tr>
-                <tr><td colspan='2' align='center' class='addr_label addr_button_cell1' style='height:55px;'>&nbsp;</td></tr>
+                <tr>
+                    <td class='addr_button_cell1' colspan='2'>
+                        <form method='post' action='editSponsor.php' class='popupForm'>
+                        <input style='padding: 0px 0px;' class='button_modern varPadding' type='submit' name='submit' value='Edit Sponsor Information'/>
+                        </form>
+                    </td>
+                </tr>
                 <tr>
                     <td class='addr_button_cell2' colspan='2'>
-                        <form method='post' action='sponsorRegistration.php' class='popupForm'>
+                        <form method='post' action='editSponsor.php?TODO' class='popupForm'>
                         <input style='padding: 0px 0px;' class='button_modern varPadding' type='submit' name='submit' value='Revoke Sponsorship'/>
                         </form>
                     </td>
