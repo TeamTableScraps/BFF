@@ -16,8 +16,22 @@ echo '
     <div id="sponsors" class="container-fluid bg-fade">
         <h2>Thanks to our sponsors!</h2>
         <h4>Without our generous sponsors, this event would not be possible. We would like to say a special thank you to our Platinum sponsors for this year.</h4>
-        <p>List platinum sponsors here</p>
 ';
+
+$checkSponsor = $MySQLi->query("
+                                      SELECT 
+                                        user_ID,
+                                        AES_DECRYPT(sponsorship_level, '$aesKey') as sponsorship_level,
+                                        AES_DECRYPT(spons_name, '$aesKey') as spons_name,
+                                        AES_DECRYPT(spons_phone, '$aesKey') as spons_phone,
+                                        AES_DECRYPT(spons_email, '$aesKey') as spons_email 
+                                      FROM sponsors WHERE sponsorship_level = AES_ENCRYPT('platinum', '$aesKey')");
+if($checkSponsor->num_rows > 0){
+    while ($r = $checkSponsor->fetch_array(MYSQLI_ASSOC)) {
+        $sponsorName = $r["spons_name"];
+        echo "<span style='font-weight: bold;'>&#8226; $sponsorName</span>";
+    }
+}
 
 echo'
     </div>

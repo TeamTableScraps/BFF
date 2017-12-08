@@ -147,7 +147,7 @@ else{
                         <td class=\'addr_label\'>Booth Number:</td>
                         <td class=\'addr_label\'>'.$boothID.'</td>
                     </tr>'
-                    :'<tr><td colspan=\'2\' align=\'center\' class=\'addr_label\'>&nbsp;</td></tr>')."
+                    :'<tr><td colspan=\'2\' align=\'center\' class=\'addr_label\' style="font-weight: bold; color: red;">You have not registered for a vendor booth</td></tr>')."
                 
                 
                 <tr>

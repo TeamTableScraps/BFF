@@ -53,22 +53,22 @@ if($checkVendor->num_rows > 0){
     while ($r = $checkVendor->fetch_array(MYSQLI_ASSOC)) {
 
         $vendorName = stripslashes($r["bznz_name"]);
-        echo "<tr><td align='center'>$vendorName</td>";
+        echo "<tr><td align='center' class=\"info_table\">$vendorName</td>";
         $boothID = $r["booth_ID"];
         if($boothID != 0){
-            echo "<td align='center'>$boothID</td>";
+            echo "<td align='center' class=\"info_table\">$boothID</td>";
         }
         else{
-            echo "<td align='center'>No booth</td>";
+            echo "<td align='center' class=\"info_table\">No booth</td>";
         }
         $vendorDescription = stripslashes($r["description"]);
-        echo "<td align='center'>$vendorDescription</td>";
+        echo "<td align='center' class=\"info_table\">$vendorDescription</td>";
         $vendorEmail = stripslashes($r["bznz_email"]);
-        echo "<td align='center'>$vendorEmail</td>";
+        echo "<td align='center' class=\"info_table\">$vendorEmail</td>";
         $vendorPhone = stripslashes($r["bznz_phone"]);
-        echo "<td align='center'>$vendorPhone</td>";
+        echo "<td align='center' class=\"info_table\">$vendorPhone</td>";
         $vendorURL = stripslashes($r["bznz_url"]);
-        echo "<td align='center'>$vendorURL</td></tr>";
+        echo "<td align='center' class=\"info_table\">$vendorURL</td></tr>";
     }
 }
 
