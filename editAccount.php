@@ -43,7 +43,7 @@ if ($_POST['toSubmit'] == 'true'){
         $altError .= 'Invalid phone number<br/>';
     }
 
-    if ($errorMsg == '') {
+    if ($errorMsg == '' && $altError == '') {
         //Prevent injection
         $fname = $MySQLi->escape_string($fname);
         $lname = $MySQLi->escape_string($lname);

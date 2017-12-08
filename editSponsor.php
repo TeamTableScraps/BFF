@@ -50,7 +50,7 @@ if ($_POST['toSubmit'] == 'true'){
         $altError .= 'Invalid email<br />';
     }
 
-    if ($errorMsg == '') {
+    if ($errorMsg == '' && $altError == '') {
         $updateSponsor = $MySQLi->query("
             UPDATE sponsors SET
               spons_name = AES_ENCRYPT('$spons_name','$aesKey'), 

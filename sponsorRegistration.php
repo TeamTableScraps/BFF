@@ -58,7 +58,7 @@ if ($_POST['toSubmit'] == 'true'){
 
     //RUN ERROR CHECK QUERIES HERE
 
-    if ($errorMsg == '') {
+    if ($errorMsg == '' && $altError == '') {
         //!!! CODE IF THERE ARE NO ERRORS !!!
         $sponsorship_level = $MySQLi->escape_string($sponsorship_level);
         $spons_email = $MySQLi->escape_string($spons_email);
