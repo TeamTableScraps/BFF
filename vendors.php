@@ -46,17 +46,21 @@ echo '
 			<th class="info_table" align="center">Website</th>
         
 		</tr>
-		
-		<tr>
 ';
 
 $checkVendor = $MySQLi->query("SELECT * FROM vendors");
 if($checkVendor->num_rows > 0){
     while ($r = $checkVendor->fetch_array(MYSQLI_ASSOC)) {
+
         $vendorName = $r["bznz_name"];
-        echo "<td align='center'>$vendorName</td>";
+        echo "<tr><td align='center'>$vendorName</td>";
         $boothID = $r["booth_ID"];
-        echo "<td align='center'>$boothID</td>";
+        if($boothID != 0){
+            echo "<td align='center'>$boothID</td>";
+        }
+        else{
+            echo "<td align='center'>No booth</td>";
+        }
         $vendorDescription = $r["description"];
         echo "<td align='center'>$vendorDescription</td>";
         $vendorEmail = $r["bznz_email"];
@@ -64,8 +68,7 @@ if($checkVendor->num_rows > 0){
         $vendorPhone = $r["bznz_phone"];
         echo "<td align='center'>$vendorPhone</td>";
         $vendorURL = $r["bznz_url"];
-        echo "<td align='center'>$vendorURL</td>";
-
+        echo "<td align='center'>$vendorURL</td></tr>";
     }
 }
 
