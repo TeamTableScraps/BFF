@@ -147,7 +147,7 @@ else{
                         <td class=\'addr_label\'>Booth Number:</td>
                         <td class=\'addr_label\'>'.$boothID.'</td>
                     </tr>'
-                    :'<tr><td colspan=\'2\' align=\'center\' class=\'addr_label\' style="font-weight: bold; color: red;">You have not registered for a vendor booth</td></tr>')."
+                    :'<tr><td colspan=\'2\' align=\'center\' class=\'addr_label\' style="font-weight: bold; color: red;">You have not claimed a vendor booth</td></tr>')."
                 
                 
                 <tr>
@@ -199,7 +199,8 @@ if($registeredSponsor){
                 </tr>
                 <tr>
                     <td class='addr_button_cell2' colspan='2'>
-                        <form method='post' action='editSponsor.php?TODO' class='popupForm'>
+                        <form method='post' action='editSponsor.php' class='popupForm'>
+                        <input type='hidden' name='revoke' value='true'/>
                         <input style='padding: 0px 0px;' class='button_modern varPadding' type='submit' name='submit' value='Revoke Sponsorship'/>
                         </form>
                     </td>

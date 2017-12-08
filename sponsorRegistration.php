@@ -21,6 +21,7 @@ if(!isset($_POST['toSubmit'])){
     $_POST['toSubmit'] = 'false';
 }
 $errorMsg = '';
+$altError = '';
 
 if(!isset($spons_phone)){
     $spons_phone = '';
@@ -88,13 +89,14 @@ echo "
     <table class='padded' align='center'>
         <tr class='addr_header_row'><td colspan='2' align='center' class='addr_header noTopPadding'>Register</td></tr>
         <tr><td colspan='2' class='addr_label'>&nbsp;</td></tr>
+        <tr><td colspan='2' class='addr_label'></td></tr>
         
         <tr><td colspan='2' class='addr_label noPadding'>Sponsorship Level</td></tr>
         <tr><td colspan='2' align='center'><select name='sponsorship_level' required>\";
-            <option value='bronze'>Bronze</option>
-            <option value='silver'>Silver</option>
-            <option value='gold'>Gold</option>
-            <option value='platinum'>Platinum</option>
+            <option value='bronze'>Bronze ($50)</option>
+            <option value='silver'>Silver ($100)</option>
+            <option value='gold'>Gold ($250)</option>
+            <option value='platinum'>Platinum ($1,000)</option>
         </select></td></tr>
         
         <tr><td colspan='2' class='addr_label noPadding'>Sponsor Name</td></tr>
@@ -109,8 +111,13 @@ echo "
         <tr><td colspan=2><input type='submit' value='Register' class='button_modern varPadding'/></td></tr>
 ";
 
-if ($errorMsg != '') {
-    echo "<tr><td colspan='2' align='center' class='error'>$errorMsg</td></tr>";
+if ($errorMsg != '' || $altError != '') {
+    if($altError != ''){
+        echo "<tr><td colspan='2' align='center' class='error'>$altError</td></tr>";
+    }
+    else{
+        echo "<tr><td colspan='2' align='center' class='error'>Please enter the following fields:</br>$errorMsg</td></tr>";
+    }
 }
 
 echo "
