@@ -201,7 +201,7 @@ if($registeredSponsor){
                     <td class='addr_button_cell2' colspan='2'>
                         <form method='post' action='editSponsor.php' class='popupForm'>
                         <input type='hidden' name='revoke' value='true'/>
-                        <input style='padding: 0px 0px;' class='button_modern varPadding' type='submit' name='submit' value='Revoke Sponsorship'/>
+                        <input style='padding: 0px 0px;' class='button_modern varPadding' type='submit' name='submit' value='Revoke Sponsorship' onclick=\"return confirm('Are you sure?');\"/>
                         </form>
                     </td>
                 </tr>

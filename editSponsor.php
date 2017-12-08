@@ -20,8 +20,19 @@ echo "
 if(!isset($_POST['toSubmit'])){
     $_POST['toSubmit'] = 'false';
 }
+if(!isset($_POST['revoke'])){
+    $_POST['revoke'] = 'false';
+}
 $errorMsg = '';
 $altError = '';
+
+if($_POST['revoke'] == 'true'){
+    $revokeQuery = $MySQLi->query("
+        DELETE FROM `sponsors` WHERE user_ID = ".$user->userID."
+    ");
+    echo "<script>$.colorbox.close();</script>";
+    exit();
+}
 
 if(!isset($spons_phone)){
     $spons_phone = '';
