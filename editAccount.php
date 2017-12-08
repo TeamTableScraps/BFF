@@ -38,6 +38,12 @@ if ($_POST['toSubmit'] == 'true'){
     if ($phone == ''){
         $errorMsg .= '&#8226; Phone Number ';
     }
+    if (!preg_match("/^[0-9]{10}$/", $phone)){
+        $errorMsg .= 'Invalid phone number<br />';
+    }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        $errorMsg .= 'Invalid email<br />';
+    }
 
     if ($errorMsg == '') {
         //Prevent injection

@@ -33,6 +33,12 @@ if (isset($_POST['toSubmit']) && $_POST['toSubmit'] == 'true') {
     if($pass != $confirmPass){
         $altError = 'The passwords did not match.';
     }
+    if (!preg_match("/^[0-9]{10}$/", $phone)){
+        $errorMsg .= 'Invalid phone number<br />';
+    }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        $errorMsg .= 'Invalid email<br />';
+    }
 
     $q = $MySQLi->query("select user_ID from users where aes_decrypt( email, '$aesKey' ) like '$email' limit 1") or die(mysqli_error($MySQLi));;
     if ($q->num_rows > 0) {

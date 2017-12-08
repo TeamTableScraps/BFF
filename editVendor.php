@@ -30,6 +30,15 @@ if (isset($_POST['toSubmit']) && $_POST['toSubmit'] == 'true') {
     /*if (trim($description) == '') {
         $errorMsg .= '&#8226; Description ';
     }*/
+    if (!preg_match("/^[0-9]{10}$/", $bznz_phone)){
+        $errorMsg .= 'Invalid phone number<br />';
+    }
+    if (!filter_var($bznz_email, FILTER_VALIDATE_EMAIL)){
+        $errorMsg .= 'Invalid email<br />';
+    }
+    if (!filter_var($bznz_url, FILTER_VALIDATE_URL)){
+        $errorMsg .= 'Invalid URL<br />';
+    }
 
     if($errorMsg == '' && $altError == ''){
         //Prevent injection

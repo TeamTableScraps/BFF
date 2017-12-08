@@ -50,6 +50,12 @@ if ($_POST['toSubmit'] == 'true'){
     if (trim($spons_email) == ''){
         $errorMsg .= '&#8226; Sponsor Email<br />';
     }
+    if (!preg_match("/^[0-9]{10}$/", $spons_phone)){
+        $errorMsg .= 'Invalid phone number<br />';
+    }
+    if (!filter_var($spons_email, FILTER_VALIDATE_EMAIL)){
+        $errorMsg .= 'Invalid email<br />';
+    }
 
     //RUN ERROR CHECK QUERIES HERE
 
