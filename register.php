@@ -33,11 +33,11 @@ if (isset($_POST['toSubmit']) && $_POST['toSubmit'] == 'true') {
     if($pass != $confirmPass){
         $altError = 'The passwords did not match.';
     }
-    if (!preg_match("/^[0-9]{10}$/", $phone)){
-        $errorMsg .= 'Invalid phone number<br />';
+    if (strlen($bznz_phone) != 12){
+        $altError .= 'Invalid phone number<br/>';
     }
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        $errorMsg .= 'Invalid email<br />';
+        $altError .= 'Invalid email<br />';
     }
 
     $q = $MySQLi->query("select user_ID from users where aes_decrypt( email, '$aesKey' ) like '$email' limit 1") or die(mysqli_error($MySQLi));;
@@ -127,7 +127,7 @@ echo "
         <tr><td colspan='2'><input class='input_modern' type='text' name='lname' value='$lname'></td></tr>
         
         <tr><td colspan='2' class='addr_label noPadding'>Phone Number</td></tr>
-        <tr><td colspan='2'><input class='input_modern' type='text' name='phone' value='$phone'></td></tr>
+        <tr><td colspan='2'><input class='input_modern phoneInput' type='text' name='phone' value='$phone'></td></tr>
         
         <tr><td colspan='2' class='addr_label noPadding'>Email Address</td></tr>
         <tr><td colspan='2'><input class='input_modern' type='text' name='email' value='$email'></td></tr>

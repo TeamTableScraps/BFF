@@ -38,11 +38,11 @@ if ($_POST['toSubmit'] == 'true'){
     if ($phone == ''){
         $errorMsg .= '&#8226; Phone Number ';
     }
-    if (!preg_match("/^[0-9]{10}$/", $phone)){
-        $errorMsg .= 'Invalid phone number<br />';
+    if (strlen($bznz_phone) != 12){
+        $altError .= 'Invalid phone number<br/>';
     }
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        $errorMsg .= 'Invalid email<br />';
+        $altError .= 'Invalid email<br />';
     }
 
     if ($errorMsg == '') {
@@ -121,7 +121,7 @@ echo "
         <tr><td colspan='2'><input class='input_modern' type='text' name='email' value='$email'/></td></tr>
         
         <tr><td colspan='2' class='addr_label noPadding'>Phone Number</td></tr>
-        <tr><td colspan='2'><input class='input_modern' type='text' name='phone' value='$phone'/></td></tr>
+        <tr><td colspan='2'><input class='input_modern phoneInput' type='text' name='phone' value='$phone'/></td></tr>
 
         <tr><td colspan=2><input type='submit' value='Submit' class='button_modern varPadding'/></td></tr>
 ";

@@ -10,6 +10,15 @@ foreach ($_POST as $k => $v) {
 }
 unset($k, $v);
 
+//Stop user from accessing this page directly instead of through the colorbox
+echo "
+<script>
+    if(!document.getElementById('colorbox')){
+        window.location = 'account.php';
+    }
+</script>
+";
+
 //If the form was already submitted
 if (isset($_POST['toSubmit']) && $_POST['toSubmit'] == 'true') {
     $errorMsg = '';
@@ -30,14 +39,11 @@ if (isset($_POST['toSubmit']) && $_POST['toSubmit'] == 'true') {
     /*if (trim($description) == '') {
         $errorMsg .= '&#8226; Description ';
     }*/
-    if (!preg_match("/^[0-9]{10}$/", $bznz_phone)){
-        $errorMsg .= 'Invalid phone number<br />';
+    if (strlen($bznz_phone) != 12){
+        $altError .= 'Invalid phone number<br/>';
     }
     if (!filter_var($bznz_email, FILTER_VALIDATE_EMAIL)){
-        $errorMsg .= 'Invalid email<br />';
-    }
-    if (!filter_var($bznz_url, FILTER_VALIDATE_URL)){
-        $errorMsg .= 'Invalid URL<br />';
+        $altError .= 'Invalid email<br />';
     }
 
     if($errorMsg == '' && $altError == ''){
@@ -114,14 +120,14 @@ echo "
     <form action='editVendor.php' name='register_form' method='post' class='popupForm'>
     <input type='hidden' name='toSubmit' value='true'/>
     <table class='padded' align='center'>
-        <tr class='addr_header_row'><td colspan='2' align='center' class='addr_header noTopPadding'>Register</td></tr>
+        <tr class='addr_header_row'><td colspan='2' align='center' class='addr_header noTopPadding'>Update</td></tr>
         <tr><td colspan='2' class='addr_label'>&nbsp;</td></tr>
         
         <tr><td colspan='2' class='addr_label noPadding'>Business Name</td></tr>
         <tr><td colspan='2'><input class='input_modern' type='text' name='bznz_name' value='".$bznz_name."'></td></tr>
         
         <tr><td colspan='2' class='addr_label noPadding'>Business Phone Number</td></tr>
-        <tr><td colspan='2'><input class='input_modern' type='text' name='bznz_phone' value='$bznz_phone'></td></tr>
+        <tr><td colspan='2'><input class='input_modern phoneInput' type='text' name='bznz_phone' value='$bznz_phone'></td></tr>
         
         <tr><td colspan='2' class='addr_label noPadding'>Business URL</td></tr>
         <tr><td colspan='2'><input class='input_modern' type='text' name='bznz_url' value='$bznz_url'></td></tr>

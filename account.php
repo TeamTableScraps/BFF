@@ -22,7 +22,14 @@ else{
     $registeredVendor = false;
 }
 
-$checkSponsor = $MySQLi->query("SELECT * FROM sponsors WHERE user_ID = {$user->userID}");
+$checkSponsor = $MySQLi->query("
+                                      SELECT 
+                                        AES_DECRYPT(user_ID, '$aesKey') as user_ID,
+                                        AES_DECRYPT(sponsorship_level, '$aesKey') as sponsorship_level,
+                                        AES_DECRYPT(spons_name, '$aesKey') as spons_name,
+                                        AES_DECRYPT(spons_phone, '$aesKey') as spons_phone,
+                                        AES_DECRYPT(spons_email, '$aesKey') as spons_email 
+                                      FROM sponsors WHERE user_ID = {$user->userID}");
 if($checkSponsor->num_rows > 0){
     while ($r = $checkSponsor->fetch_array(MYSQLI_ASSOC)) {
         $sponsorship_level = $r["sponsorship_level"];

@@ -20,6 +20,7 @@
     <script src="scripts/jquery-3.2.1.js"></script>
     <script src="scripts/scripts.js"></script>
     <script type="text/javascript" src="colorbox-master/jquery.colorbox-min.js"></script>
+    <script src="scripts/jquery.mask.js"></script>
 </head>
 <body>
 <div id='pagewrap'>

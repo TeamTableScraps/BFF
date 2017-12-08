@@ -50,11 +50,11 @@ if ($_POST['toSubmit'] == 'true'){
     if (trim($spons_email) == ''){
         $errorMsg .= '&#8226; Sponsor Email<br />';
     }
-    if (!preg_match("/^[0-9]{10}$/", $spons_phone)){
-        $errorMsg .= 'Invalid phone number<br />';
+    if (strlen($bznz_phone) != 12){
+        $altError .= 'Invalid phone number<br/>';
     }
     if (!filter_var($spons_email, FILTER_VALIDATE_EMAIL)){
-        $errorMsg .= 'Invalid email<br />';
+        $altError .= 'Invalid email<br />';
     }
 
     //RUN ERROR CHECK QUERIES HERE
@@ -69,7 +69,7 @@ if ($_POST['toSubmit'] == 'true'){
         $currentUserID = $user->userID;
         $insert_query = $MySQLi->query("
           INSERT INTO sponsors(user_ID, sponsorship_level, spons_name, spons_phone, spons_email)
-          VALUES ('$currentUserID', '$sponsorship_level', '$spons_name', '$spons_phone', '$spons_email')");
+          VALUES (AES_ENCRYPT('$currentUserID', '$sponsorship_level', '$spons_name', '$spons_phone', '$spons_email')");
 
         echo "<script>$.colorbox.close();</script>";
     }
@@ -94,7 +94,7 @@ echo "
         <tr><td colspan='2'><input class='input_modern' type='text' name='spons_name'/></td></tr>
         
         <tr><td colspan='2' class='addr_label noPadding'>Sponsor Phone</td></tr>
-        <tr><td colspan='2'><input class='input_modern' type='text' name='spons_phone'/></td></tr>
+        <tr><td colspan='2'><input class='input_modern phoneInput' type='text' name='spons_phone'/></td></tr>
         
         <tr><td colspan='2' class='addr_label noPadding'>Sponsor Email</td></tr>
         <tr><td colspan='2'><input class='input_modern' type='text' name='spons_email'/></td></tr>

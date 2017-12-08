@@ -10,6 +10,15 @@ foreach ($_POST as $k => $v) {
 }
 unset($k, $v);
 
+//Stop user from accessing this page directly instead of through the colorbox
+echo "
+<script>
+    if(!document.getElementById('colorbox')){
+        window.location = 'account.php';
+    }
+</script>
+";
+
 if(!isset($bznz_name)){
     $bznz_name = '';
 }
@@ -52,11 +61,11 @@ if (isset($_POST['toSubmit']) && $_POST['toSubmit'] == 'true') {
     /*if (trim($description) == '') {
         $errorMsg .= '&#8226; Description ';
     }*/
-    if (!preg_match("/^[0-9]{10}$/", $bznz_phone)){
-        $errorMsg .= 'Invalid phone number<br />';
+    if (strlen($bznz_phone) != 12){
+        $altError .= 'Invalid phone number<br/>';
     }
     if (!filter_var($bznz_email, FILTER_VALIDATE_EMAIL)){
-        $errorMsg .= 'Invalid email<br />';
+        $altError .= 'Invalid email<br />';
     }
 
     if($errorMsg == '' && $altError == ''){
@@ -83,6 +92,12 @@ if (isset($_POST['toSubmit']) && $_POST['toSubmit'] == 'true') {
     }
 }
 
+
+$bznz_name = stripslashes(str_ireplace("'",  "&apos;", $bznz_name));
+$bznz_phone = stripslashes(str_ireplace("'",  "&apos;", $bznz_phone));
+$bznz_url = stripslashes(str_ireplace("'",  "&apos;", $bznz_url));
+$bznz_email = stripslashes(str_ireplace("'",  "&apos;", $bznz_email));
+$description = stripslashes(str_ireplace("'",  "&apos;", $description));
 ############
 # FRONTEND #
 ############
@@ -97,7 +112,7 @@ echo "
         <tr><td colspan='2'><input class='input_modern' type='text' name='bznz_name' value='$bznz_name'></td></tr>
         
         <tr><td colspan='2' class='addr_label noPadding'>Business Phone Number</td></tr>
-        <tr><td colspan='2'><input class='input_modern' type='text' name='bznz_phone' value='$bznz_phone'></td></tr>
+        <tr><td colspan='2'><input class='input_modern phoneInput' type='text' name='bznz_phone' value='$bznz_phone'></td></tr>
         
         <tr><td colspan='2' class='addr_label noPadding'>Business URL</td></tr>
         <tr><td colspan='2'><input class='input_modern' type='text' name='bznz_url' value='$bznz_url'></td></tr>

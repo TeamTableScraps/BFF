@@ -4,8 +4,8 @@
         <div id="footerWrap">
             <div id="footerContent">
                 <div id="footerColumn1" class="footerColumn">
-                    Monday, December 4, 2017<br/>
-                    11am-6pm
+                    Saturday, December 16, 2018<br/>
+                    From 9am - 9pm
                 </div>
                 <div id="footerColumn2" class="footerColumn">
                     11000 University Pkwy | Pensacola, FL<br/>

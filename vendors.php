@@ -52,7 +52,7 @@ $checkVendor = $MySQLi->query("SELECT * FROM vendors");
 if($checkVendor->num_rows > 0){
     while ($r = $checkVendor->fetch_array(MYSQLI_ASSOC)) {
 
-        $vendorName = $r["bznz_name"];
+        $vendorName = stripslashes($r["bznz_name"]);
         echo "<tr><td align='center'>$vendorName</td>";
         $boothID = $r["booth_ID"];
         if($boothID != 0){
@@ -61,13 +61,13 @@ if($checkVendor->num_rows > 0){
         else{
             echo "<td align='center'>No booth</td>";
         }
-        $vendorDescription = $r["description"];
+        $vendorDescription = stripslashes($r["description"]);
         echo "<td align='center'>$vendorDescription</td>";
-        $vendorEmail = $r["bznz_email"];
+        $vendorEmail = stripslashes($r["bznz_email"]);
         echo "<td align='center'>$vendorEmail</td>";
-        $vendorPhone = $r["bznz_phone"];
+        $vendorPhone = stripslashes($r["bznz_phone"]);
         echo "<td align='center'>$vendorPhone</td>";
-        $vendorURL = $r["bznz_url"];
+        $vendorURL = stripslashes($r["bznz_url"]);
         echo "<td align='center'>$vendorURL</td></tr>";
     }
 }

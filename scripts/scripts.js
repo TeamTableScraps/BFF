@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    //Masks
+    $(".phoneInput").mask("999-999-9999", {placeholder: "___-___-____"});
+
+    //Colorbox scripts
     $.colorbox.settings.close = "&#10006;";
     $.colorbox.settings.onOpen = function(){
         $("#cboxTopLeft").hide();
