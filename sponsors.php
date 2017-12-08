@@ -22,7 +22,18 @@ echo'
 
 ';
 
+$checkSponsor = $MySQLi->query("SELECT * FROM sponsors WHERE sponsorship_level = AES_ENCRYPT('platinum', 'BFF')");
+if($checkSponsor->num_rows > 0){
+    while ($r = $checkSponsor->fetch_array(MYSQLI_ASSOC)) {
+        $sponsorName = $r["spons_name"];
+        echo "<td align='center'>$sponsorName</td>";
+        $sponsorEmail = $r["spons_email"];
+        echo "<td align='center'>$sponsorEmail</td>";
+        $sponsorPhone = $r["spons_phone"];
+        echo "<td align='center'>$sponsorPhone</td>";
 
+    }
+}
 
 echo'	</tr>
         
@@ -53,6 +64,18 @@ echo'
 
 ';
 
+$checkSponsor = $MySQLi->query("SELECT * FROM sponsors WHERE sponsorship_level = AES_ENCRYPT('gold', 'BFF')");
+if($checkSponsor->num_rows > 0){
+    while ($r = $checkSponsor->fetch_array(MYSQLI_ASSOC)) {
+        $sponsorName = $r["spons_name"];
+        echo "<td align='center'>$sponsorName</td>";
+        $sponsorEmail = $r["spons_email"];
+        echo "<td align='center'>$sponsorEmail</td>";
+        $sponsorPhone = $r["spons_phone"];
+        echo "<td align='center'>$sponsorPhone</td>";
+
+    }
+}
 
 
 echo'	</tr>
@@ -83,7 +106,18 @@ echo'
 
 ';
 
+$checkSponsor = $MySQLi->query("SELECT * FROM sponsors WHERE sponsorship_level = AES_ENCRYPT('silver', 'BFF')");
+if($checkSponsor->num_rows > 0){
+    while ($r = $checkSponsor->fetch_array(MYSQLI_ASSOC)) {
+        $sponsorName = $r["spons_name"];
+        echo "<td align='center'>$sponsorName</td>";
+        $sponsorEmail = $r["spons_email"];
+        echo "<td align='center'>$sponsorEmail</td>";
+        $sponsorPhone = $r["spons_phone"];
+        echo "<td align='center'>$sponsorPhone</td>";
 
+    }
+}
 
 echo'	</tr>
         

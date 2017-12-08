@@ -58,9 +58,6 @@ if (isset($_POST['toSubmit']) && $_POST['toSubmit'] == 'true') {
     if (!filter_var($bznz_email, FILTER_VALIDATE_EMAIL)){
         $errorMsg .= 'Invalid email<br />';
     }
-    if (!filter_var($bznz_url, FILTER_VALIDATE_URL)){
-        $errorMsg .= 'Invalid URL<br />';
-    }
 
     if($errorMsg == '' && $altError == ''){
         //Prevent injection
