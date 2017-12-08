@@ -34,15 +34,13 @@ if ($_POST['toSubmit'] == 'true'){
     }
     if ($email == ''){
         $errorMsg .= '&#8226; Email Address ';
+    }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        $altError .= 'Invalid email<br />';
     }
     if ($phone == ''){
         $errorMsg .= '&#8226; Phone Number ';
-    }
-    if (strlen($phone) != 12){
+    }elseif (strlen($phone) != 12){
         $altError .= 'Invalid phone number<br/>';
-    }
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        $altError .= 'Invalid email<br />';
     }
 
     if ($errorMsg == '') {

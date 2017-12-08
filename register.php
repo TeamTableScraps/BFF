@@ -23,9 +23,13 @@ if (isset($_POST['toSubmit']) && $_POST['toSubmit'] == 'true') {
     }
     if (trim($phone) == ''){
         $errorMsg .= '&#8226; Phone Number ';
+    }elseif (strlen($phone) != 12){
+        $altError .= 'Invalid phone number<br/>';
     }
     if (trim($email) == ''){
         $errorMsg .= '&#8226; Email ';
+    }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        $altError .= 'Invalid email<br />';
     }
     if(trim($pass) == '' || trim($confirmPass) == ''){
         $errorMsg .= '&#8226; Password ';
@@ -33,12 +37,8 @@ if (isset($_POST['toSubmit']) && $_POST['toSubmit'] == 'true') {
     if($pass != $confirmPass){
         $altError = 'The passwords did not match.';
     }
-    if (strlen($phone) != 12){
-        $altError .= 'Invalid phone number<br/>';
-    }
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        $altError .= 'Invalid email<br />';
-    }
+
+
 
     $q = $MySQLi->query("select user_ID from users where aes_decrypt( email, '$aesKey' ) like '$email' limit 1") or die(mysqli_error($MySQLi));;
     if ($q->num_rows > 0) {

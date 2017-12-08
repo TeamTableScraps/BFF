@@ -51,20 +51,15 @@ if (isset($_POST['toSubmit']) && $_POST['toSubmit'] == 'true') {
     }
     if (trim($bznz_phone) == '') {
         $errorMsg .= '&#8226; Business Phone Number ';
+    }elseif (strlen($bznz_phone) != 12){
+        $altError .= 'Invalid phone number<br/>';
     }
     if (trim($bznz_url) == '') {
         $errorMsg .= '&#8226; Business URL ';
     }
     if (trim($bznz_email) == '') {
         $errorMsg .= '&#8226; Business Email ';
-    }
-    /*if (trim($description) == '') {
-        $errorMsg .= '&#8226; Description ';
-    }*/
-    if (strlen($bznz_phone) != 12){
-        $altError .= 'Invalid phone number<br/>';
-    }
-    if (!filter_var($bznz_email, FILTER_VALIDATE_EMAIL)){
+    }elseif (!filter_var($bznz_email, FILTER_VALIDATE_EMAIL)){
         $altError .= 'Invalid email<br />';
     }
 
