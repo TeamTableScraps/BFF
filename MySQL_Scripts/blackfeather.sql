@@ -1,9 +1,34 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1:3306
+-- Generation Time: Dec 12, 2017 at 09:50 PM
+-- Server version: 5.7.19
+-- PHP Version: 5.6.31
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `blackfeather`
+--
 CREATE DATABASE IF NOT EXISTS `blackfeather` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `blackfeather`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `booths`
+--
 
 DROP TABLE IF EXISTS `booths`;
 CREATE TABLE IF NOT EXISTS `booths` (
@@ -13,11 +38,15 @@ CREATE TABLE IF NOT EXISTS `booths` (
   UNIQUE KEY `booth_ID` (`booth_ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=66 DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `booths`
+--
+
 INSERT INTO `booths` (`booth_ID`, `is_available`) VALUES
-(1, 0),
+(1, 1),
 (2, 1),
 (3, 1),
-(4, 0),
+(4, 1),
 (10, 1),
 (9, 1),
 (8, 1),
@@ -28,7 +57,7 @@ INSERT INTO `booths` (`booth_ID`, `is_available`) VALUES
 (15, 1),
 (16, 1),
 (17, 1),
-(18, 1),
+(18, 0),
 (19, 1),
 (20, 1),
 (21, 1),
@@ -79,6 +108,12 @@ INSERT INTO `booths` (`booth_ID`, `is_available`) VALUES
 (6, 1),
 (7, 1);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sponsors`
+--
+
 DROP TABLE IF EXISTS `sponsors`;
 CREATE TABLE IF NOT EXISTS `sponsors` (
   `user_ID` int(10) NOT NULL,
@@ -89,6 +124,19 @@ CREATE TABLE IF NOT EXISTS `sponsors` (
   PRIMARY KEY (`user_ID`),
   UNIQUE KEY `user_ID` (`user_ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sponsors`
+--
+
+INSERT INTO `sponsors` (`user_ID`, `sponsorship_level`, `spons_name`, `spons_phone`, `spons_email`) VALUES
+(11, 0xf727fe07f7d992040c799232085ec345, 0xb7af6af1302d8cb551b946daa6b2049a, 0x2bf8fa8ee3c06fb2f7c82a45501d6031, 0x5eba6ab53a3e6315a18d87fb8d9386792bd6d0bdde6a7119d27aea0fbdfaeb16);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
@@ -101,7 +149,20 @@ CREATE TABLE IF NOT EXISTS `users` (
   `is_organizer` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`user_ID`),
   UNIQUE KEY `user_ID` (`user_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_ID`, `first_name`, `last_name`, `email`, `password`, `phone`, `is_organizer`) VALUES
+(11, 0x910496e3cf08c0e4a28f96d3fedacf87, 0x5e74586c67a1d569e544e0f974c877d4, 0x0602b3959e954d904d9d2a3b3ac202bdc3f9e7d42a20f448953eea410db59213, 0x03829cb31a5fb944f0a49adb5c50b858, 0xe4f68e0f253ef4e1e078dc54c01960b1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vendors`
+--
 
 DROP TABLE IF EXISTS `vendors`;
 CREATE TABLE IF NOT EXISTS `vendors` (
@@ -115,4 +176,15 @@ CREATE TABLE IF NOT EXISTS `vendors` (
   PRIMARY KEY (`user_ID`),
   UNIQUE KEY `user_ID` (`user_ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `vendors`
+--
+
+INSERT INTO `vendors` (`user_ID`, `booth_ID`, `bznz_name`, `bznz_phone`, `bznz_url`, `bznz_email`, `description`) VALUES
+(11, 18, 'Mike\\\'s Meals', '850-418-7097', 'http://www.mikesmeals.com', 'mike@mikesmeals.com', 'We serve food AND vodka!');
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
