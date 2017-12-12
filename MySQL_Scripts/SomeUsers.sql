@@ -1,0 +1,74 @@
+INSERT INTO `users`(`first_name`, `last_name`, `email`, `password`, `phone`) 
+VALUES(
+    AES_ENCRYPT('Peter','BFF'),
+   	AES_ENCRYPT('Griffin','BFF'),
+    AES_ENCRYPT('peter@gmail.com','BFF'),
+    AES_ENCRYPT('test','BFF'),
+    AES_ENCRYPT('999-999-9999','BFF')
+),(
+    AES_ENCRYPT('Nathan','BFF'),
+   	AES_ENCRYPT('Explosion','BFF'),
+    AES_ENCRYPT('nathan@gmail.com','BFF'),
+    AES_ENCRYPT('test','BFF'),
+    AES_ENCRYPT('999-999-9999','BFF')
+),(
+    AES_ENCRYPT('Bob','BFF'),
+   	AES_ENCRYPT('Belcher','BFF'),
+    AES_ENCRYPT('bob@gmail.com','BFF'),
+    AES_ENCRYPT('test','BFF'),
+    AES_ENCRYPT('999-999-9999','BFF')
+),(
+    AES_ENCRYPT('Marge','BFF'),
+   	AES_ENCRYPT('Simpson','BFF'),
+    AES_ENCRYPT('marge@gmail.com','BFF'),
+    AES_ENCRYPT('test','BFF'),
+    AES_ENCRYPT('999-999-9999','BFF')
+),(
+    AES_ENCRYPT('Alex','BFF'),
+   	AES_ENCRYPT('Spiller','BFF'),
+    AES_ENCRYPT('alex@gmail.com','BFF'),
+    AES_ENCRYPT('test','BFF'),
+    AES_ENCRYPT('999-999-9999','BFF')
+),(
+    AES_ENCRYPT('Bernd','BFF'),
+   	AES_ENCRYPT('OwsnickiKlewe','BFF'),
+    AES_ENCRYPT('BOwsnickiKlewe@uwf.edu','BFF'),
+    AES_ENCRYPT('test','BFF'),
+    AES_ENCRYPT('999-999-9999','BFF')
+),(
+    AES_ENCRYPT('Courtney','BFF'),
+   	AES_ENCRYPT('Solari','BFF'),
+    AES_ENCRYPT('courtney@gmail.com','BFF'),
+    AES_ENCRYPT('test','BFF'),
+    AES_ENCRYPT('999-999-9999','BFF')
+),(
+    AES_ENCRYPT('Kiara','BFF'),
+   	AES_ENCRYPT('Celestine','BFF'),
+    AES_ENCRYPT('@gmail.com','BFF'),
+    AES_ENCRYPT('test','BFF'),
+    AES_ENCRYPT('999-999-9999','BFF')
+),(
+    AES_ENCRYPT('Adrian','BFF'),
+   	AES_ENCRYPT('DeLeon','BFF'),
+    AES_ENCRYPT('adrian@gmail.com','BFF'),
+    AES_ENCRYPT('test','BFF'),
+    AES_ENCRYPT('999-999-9999','BFF')
+),(
+    AES_ENCRYPT('Mors','BFF'),
+   	AES_ENCRYPT('Murdock','BFF'),
+    AES_ENCRYPT('murdock@gmail.com','BFF'),
+    AES_ENCRYPT('test','BFF'),
+    AES_ENCRYPT('999-999-9999','BFF')
+),(
+    AES_ENCRYPT('Stephen','BFF'),
+   	AES_ENCRYPT('Stephenson','BFF'),
+    AES_ENCRYPT('sstephenson@gmail.com','BFF'),
+    AES_ENCRYPT('test','BFF'),
+    AES_ENCRYPT('999-999-9999','BFF')
+),(
+    AES_ENCRYPT('John','BFF'),
+   	AES_ENCRYPT('Ripper','BFF'),
+    AES_ENCRYPT('jripz@gmail.com','BFF'),
+    AES_ENCRYPT('test','BFF'),
+    AES_ENCRYPT('999-999-9999','BFF')
+)
