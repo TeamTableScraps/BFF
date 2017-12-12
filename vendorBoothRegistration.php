@@ -105,7 +105,7 @@ echo "
         <tr class='addr_header_row'><td colspan='2' align='center' class='addr_header noTopPadding'>Claim Booth</td></tr>
         <tr><td colspan='2' class='addr_label'>&nbsp;</td></tr>
         <tr><td colspan='2' align='center' class='addr_label noPadding'>Booth ID</td></tr>
-        <tr><td colspan='2' align='center'><select name='booth_ID' required>";
+        <tr><td colspan='2' align='center'><select class='selectDropdown' name='booth_ID' required>";
 while ($row = $booths->fetch_assoc()) {
     var_dump($row);
     $x = $row["booth_ID"];

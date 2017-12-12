@@ -2,6 +2,11 @@ body{
     background-color: #e6e2d7;
 }
 
+.selectDropdown{
+    width: 50%;
+    margin-bottom: 10px;
+}
+
 .clear{
     clear:both;
 }

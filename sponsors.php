@@ -30,11 +30,11 @@ $checkSponsor = $MySQLi->query("
                                       FROM sponsors WHERE sponsorship_level = AES_ENCRYPT('platinum', '$aesKey')");
 if($checkSponsor->num_rows > 0){
     while ($r = $checkSponsor->fetch_array(MYSQLI_ASSOC)) {
-        $sponsorName = $r["spons_name"];
+        $sponsorName = stripslashes($r["spons_name"]);
         echo "<tr><td align='center' class=\"info_table\">$sponsorName</td>";
-        $sponsorEmail = $r["spons_email"];
+        $sponsorEmail = stripslashes($r["spons_email"]);
         echo "<td align='center' class=\"info_table\">$sponsorEmail</td>";
-        $sponsorPhone = $r["spons_phone"];
+        $sponsorPhone = stripslashes($r["spons_phone"]);
         echo "<td align='center' class=\"info_table\">$sponsorPhone</td></tr>";
 
     }
@@ -76,11 +76,11 @@ $checkSponsor = $MySQLi->query("
                                       FROM sponsors WHERE sponsorship_level = AES_ENCRYPT('gold', '$aesKey')");
 if($checkSponsor->num_rows > 0){
     while ($r = $checkSponsor->fetch_array(MYSQLI_ASSOC)) {
-        $sponsorName = $r["spons_name"];
+        $sponsorName = stripslashes($r["spons_name"]);
         echo "<tr><td align='center' class=\"info_table\">$sponsorName</td>";
-        $sponsorEmail = $r["spons_email"];
+        $sponsorEmail = stripslashes($r["spons_email"]);
         echo "<td align='center' class=\"info_table\">$sponsorEmail</td>";
-        $sponsorPhone = $r["spons_phone"];
+        $sponsorPhone = stripslashes($r["spons_phone"]);
         echo "<td align='center' class=\"info_table\">$sponsorPhone</td></tr>";
 
     }
@@ -122,11 +122,11 @@ $checkSponsor = $MySQLi->query("
                                       FROM sponsors WHERE sponsorship_level = AES_ENCRYPT('silver', '$aesKey')");
 if($checkSponsor->num_rows > 0){
     while ($r = $checkSponsor->fetch_array(MYSQLI_ASSOC)) {
-        $sponsorName = $r["spons_name"];
+        $sponsorName = stripslashes($r["spons_name"]);
         echo "<tr><td align='center' class=\"info_table\">$sponsorName</td>";
-        $sponsorEmail = $r["spons_email"];
+        $sponsorEmail = stripslashes($r["spons_email"]);
         echo "<td align='center' class=\"info_table\">$sponsorEmail</td>";
-        $sponsorPhone = $r["spons_phone"];
+        $sponsorPhone = stripslashes($r["spons_phone"]);
         echo "<td align='center' class=\"info_table\">$sponsorPhone</td></tr>";
 
     }
@@ -167,11 +167,11 @@ $checkSponsor = $MySQLi->query("
                                       FROM sponsors WHERE sponsorship_level = AES_ENCRYPT('bronze', '$aesKey')");
 if($checkSponsor->num_rows > 0){
     while ($r = $checkSponsor->fetch_array(MYSQLI_ASSOC)) {
-        $sponsorName = $r["spons_name"];
+        $sponsorName = stripslashes($r["spons_name"]);
         echo "<tr><td align='center' class=\"info_table\">$sponsorName</td>";
-        $sponsorEmail = $r["spons_email"];
+        $sponsorEmail = stripslashes($r["spons_email"]);
         echo "<td align='center' class=\"info_table\">$sponsorEmail</td>";
-        $sponsorPhone = $r["spons_phone"];
+        $sponsorPhone = stripslashes($r["spons_phone"]);
         echo "<td align='center' class=\"info_table\">$sponsorPhone</td></tr>";
 
     }

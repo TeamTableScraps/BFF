@@ -179,15 +179,15 @@ if($registeredSponsor){
                 <tr><td colspan='2' align='center' class='addr_label' style='font-weight: bold;'>".strtoupper($sponsorship_level)." SPONSOR</td></tr>
                 <tr>
                     <td class='addr_label'>Sponsor Name:</td>
-                    <td class='addr_label'>".$spons_name."</td>
+                    <td class='addr_label'>".stripslashes($spons_name)."</td>
                 </tr>
                 <tr>
                     <td class='addr_label'>Sponsor Email:</td>
-                    <td class='addr_label'>".$spons_email."</td>
+                    <td class='addr_label'>".stripslashes($spons_email)."</td>
                 </tr>
                 <tr>
                     <td class='addr_label'>Sponsor Phone:</td>
-                    <td class='addr_label'>".$spons_phone."</td>
+                    <td class='addr_label'>".stripslashes($spons_phone)."</td>
                 </tr>
                 <tr><td colspan='2' align='center' class='addr_label'>&nbsp;</td></tr>
                 <tr>
