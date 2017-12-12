@@ -79,8 +79,9 @@ echo "
     <input type='hidden' name='toSubmit' value='true'/>
     <table class='padded' align='center'>
         <tr class='addr_header_row'><td colspan='2' align='center' class='addr_header noTopPadding'>Update</td></tr>
+        
+        <tr><td colspan='2' class='addr_label' style='font-style: italic; font-size: small;'>(This information is public)</td></tr>
         <tr><td colspan='2' class='addr_label'>&nbsp;</td></tr>
-        <tr><td colspan='2' class='addr_label'></td></tr>
         
         <tr><td colspan='2' class='addr_label noPadding'>Sponsor Name</td></tr>
         <tr><td colspan='2'><input class='input_modern' type='text' name='spons_name'/></td></tr>

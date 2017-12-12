@@ -86,9 +86,10 @@ echo "
     <input type='hidden' name='toSubmit' value='true'/>
     <table class='padded' align='center'>
         <tr class='addr_header_row'><td colspan='2' align='center' class='addr_header noTopPadding'>Register</td></tr>
-        <tr><td colspan='2' class='addr_label'>&nbsp;</td></tr>
-        <tr><td colspan='2' class='addr_label'></td></tr>
         
+        <tr><td colspan='2' class='addr_label' style='font-style: italic; font-size: small;'>(This information is public)</td></tr>
+        <tr><td colspan='2' class='addr_label'>&nbsp;</td></tr>
+                
         <tr><td colspan='2' class='addr_label noPadding'>Sponsorship Level</td></tr>
         <tr><td colspan='2' align='center'><select name='sponsorship_level' required>\";
             <option value='bronze'>Bronze ($50)</option>
